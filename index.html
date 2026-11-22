@@ -1,1180 +1,509 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sudeep Sarkar</title>
+<meta name="description" content="Sudeep Sarkar, computer vision researcher, Distinguished University Professor and Launch Dean of the Bellini College of Artificial Intelligence, Cybersecurity and Computing at the University of South Florida.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,700;1,400&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F5F7F9; --ink:#1E2430; --muted:#5A6474; --rule:#CBD2DB; --panel:#EAEEF2;
+  --link:#22567D; --visited:#5A4B86; --figure:#22567D; --figure-far:#9FB4C7; --joint:#9A7B2C;
+  --mark:#E3ECF4;
+  --serif:"Alegreya","Iowan Old Style",Georgia,serif;
+  --sans:"Alegreya Sans","Gill Sans","Segoe UI",system-ui,sans-serif;
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#13171D; --ink:#DCE1E8; --muted:#9AA4B2; --rule:#2D3541; --panel:#1B2129;
+    --link:#8DB8DE; --visited:#B7A9DC; --figure:#8DB8DE; --figure-far:#41566B; --joint:#D2AF5A;
+    --mark:#22303F; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#13171D; --ink:#DCE1E8; --muted:#9AA4B2; --rule:#2D3541; --panel:#1B2129;
+  --link:#8DB8DE; --visited:#B7A9DC; --figure:#8DB8DE; --figure-far:#41566B; --joint:#D2AF5A;
+  --mark:#22303F; color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+[hidden]{display:none !important}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 1rem);-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:1.15rem;line-height:1.62;font-kerning:normal;font-variant-numeric:oldstyle-nums proportional-nums}
+a{color:var(--link);text-decoration:none}
+a:visited{color:var(--visited)}
+a:hover{text-decoration:underline;text-underline-offset:.15em}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--link);outline-offset:2px;border-radius:2px}
+img{max-width:100%}
 
+.topbar{border-bottom:1px solid var(--rule);font-family:var(--sans);font-size:.98rem}
+.topbar-inner{max-width:78rem;margin:0 auto;padding:.7rem 1.5rem;display:flex;flex-wrap:wrap;gap:.4rem 1.5rem;align-items:baseline;justify-content:space-between}
+.site-name{font-weight:500;color:var(--ink);font-size:1.05rem}
+.site-name:visited{color:var(--ink)}
+.topbar nav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.25rem 1.25rem}
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="Generator" content="iWeb 3.0.4" />
-    <meta name="iWeb-Build" content="local-build-20171013" />
-    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
-    <meta name="viewport" content="width=700" />
-    <title>About Me</title>
-    <link rel="stylesheet" type="text/css" media="screen,print" href="About_Me_files/About_Me.css" />
-    <!--[if lt IE 8]><link rel='stylesheet' type='text/css' media='screen,print' href='About_Me_files/About_MeIE.css'/><![endif]-->
-    <!--[if gte IE 8]><link rel='stylesheet' type='text/css' media='screen,print' href='Media/IE8.css'/><![endif]-->
-    <style type="text/css">
-/*<![CDATA[*/
-	@import "Scripts/Widgets/HTMLRegion/Paste.css";
-/*]]>*/
+.page{max-width:78rem;margin:0 auto;padding:0 1.5rem 3rem;display:grid;grid-template-columns:13rem minmax(0,1fr);column-gap:3rem}
+.toc{position:sticky;top:calc(env(safe-area-inset-top,0px) + 1.25rem);align-self:start;margin-top:2.4rem;font-family:var(--sans);font-size:.95rem;line-height:1.4;max-height:calc(100vh - 2.5rem);overflow:auto}
+.toc summary{font-weight:700;cursor:pointer;margin-bottom:.5rem;list-style:none}
+.toc summary::-webkit-details-marker{display:none}
+.toc summary::after{content:"hide";font-weight:400;color:var(--link);margin-left:.6rem;font-size:.85rem}
+.toc details:not([open]) summary::after{content:"show"}
+.toc ul{list-style:none;margin:0;padding:0}
+.toc li{margin:0}
+.toc a{display:block;padding:.22rem 0 .22rem .7rem;border-left:2px solid var(--rule);color:var(--ink)}
+.toc a:visited{color:var(--ink)}
+.toc ul ul a{padding-left:1.5rem;color:var(--muted);font-size:.9rem}
+.toc ul ul a:visited{color:var(--muted)}
+.toc a[aria-current="true"]{border-left-color:var(--link);color:var(--link);font-weight:500}
+
+article{max-width:42rem;min-width:0}
+h1{font-family:var(--serif);font-weight:400;font-size:2.8rem;line-height:1.1;letter-spacing:-.01em;margin:2rem 0 0;padding-bottom:.35rem;border-bottom:1px solid var(--rule)}
+.tagline{font-family:var(--sans);font-style:italic;color:var(--muted);font-size:.98rem;margin:.45rem 0 0}
+.hatnote{font-style:italic;color:var(--muted);font-size:1rem;margin:.9rem 0 0;padding-left:1.4rem}
+
+.frieze{margin:1.4rem 0 1.6rem}
+.gait{display:block;width:100%;height:auto}
+.gait polyline{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.gait .near{stroke:var(--figure);stroke-width:2.2}
+.gait .far{stroke:var(--figure-far);stroke-width:2}
+.gait .head{fill:none;stroke:var(--figure);stroke-width:2}
+.gait .joint{fill:var(--joint)}
+.gait .ground{stroke:var(--rule);stroke-width:1}
+.gait .pose{opacity:0;animation:pose-in .45s ease-out forwards;animation-delay:calc(var(--i) * 120ms + 150ms)}
+@keyframes pose-in{to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.gait .pose{opacity:1;animation:none}}
+.frieze figcaption{font-family:var(--sans);font-size:.88rem;color:var(--muted);margin-top:.35rem;max-width:36rem}
+
+.infobox{float:right;clear:right;width:18.5rem;margin:.2rem 0 1.5rem 1.75rem;background:var(--panel);border:1px solid var(--rule);font-family:var(--sans);font-size:.93rem;line-height:1.4;padding:.8rem .9rem .9rem}
+.infobox .ib-name{font-family:var(--serif);font-size:1.3rem;font-weight:500;text-align:center;margin:0 0 .6rem}
+.infobox figure{margin:0 0 .7rem}
+.infobox img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;background:var(--paper)}
+.portrait-missing{aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;text-align:center;padding:1rem;border:1px dashed var(--rule);color:var(--muted);background:var(--paper);font-size:.88rem}
+.infobox table{border-collapse:collapse;width:100%}
+.infobox th,.infobox td{text-align:left;vertical-align:top;padding:.38rem 0;border-top:1px solid var(--rule)}
+.infobox th{font-weight:700;width:36%;padding-right:.6rem}
+.infobox tr:first-child th,.infobox tr:first-child td{border-top:0}
+.infobox ul{margin:0;padding:0;list-style:none}
+.infobox li+li{margin-top:.2rem}
+
+h2{font-family:var(--serif);font-weight:500;font-size:1.7rem;line-height:1.2;margin:2.4rem 0 .7rem;padding-bottom:.25rem;border-bottom:1px solid var(--rule);overflow:hidden}
+h3{font-family:var(--sans);font-weight:700;font-size:1.1rem;margin:1.6rem 0 .3rem}
+p{margin:0 0 .9rem}
+.lead p:first-child{margin-top:0}
+.muted{color:var(--muted)}
+sup.cite{font-family:var(--sans);font-size:.72em;line-height:0;white-space:nowrap}
+sup.cite a{padding:0 .05em}
+
+.scroll{overflow-x:auto;margin:0 0 1rem;-webkit-overflow-scrolling:touch}
+table.data{border-collapse:collapse;width:100%;font-family:var(--sans);font-size:.95rem;line-height:1.4}
+table.data th,table.data td{text-align:left;vertical-align:top;padding:.45rem .7rem .45rem 0;border-bottom:1px solid var(--rule)}
+table.data thead th{font-weight:700;border-bottom:1.5px solid var(--ink)}
+table.data td:last-child,table.data th:last-child{padding-right:0}
+table.data tbody tr:hover{background:var(--mark)}
+#service td:last-child{white-space:nowrap}
+#honors td:first-child{white-space:nowrap;width:6rem}
+table.students{min-width:36rem}
+table.students td:first-child{white-space:nowrap}
+table.students td:nth-child(2){white-space:nowrap}
+table.students:not(.expanded) tr.extra{display:none}
+.more{margin:-.3rem 0 1rem}
+.more button{font:inherit;font-family:var(--sans);font-size:.95rem;color:var(--link);background:none;border:0;padding:0;cursor:pointer}
+.more button:hover{text-decoration:underline}
+
+ol.plain,ul.plain{padding-left:1.3rem;margin:0 0 1rem}
+ol.plain li,ul.plain li{margin-bottom:.3rem}
+ul.links{columns:2;column-gap:2rem}
+ol.refs{font-size:1rem;line-height:1.5;padding-left:2rem;margin:0 0 1rem}
+ol.refs li{margin-bottom:.45rem;padding:.1rem .3rem;margin-left:-.3rem;border-radius:2px}
+ol.refs li:target{background:var(--mark)}
+.contact{font-family:var(--sans);font-size:.98rem;color:var(--muted)}
+
+.pop{position:fixed;z-index:20;max-width:24rem;background:var(--paper);color:var(--ink);border:1px solid var(--rule);box-shadow:0 6px 24px rgba(20,30,45,.16);padding:.7rem .85rem;font-family:var(--serif);font-size:.98rem;line-height:1.45}
+.pop[hidden]{display:none}
+.pop .pop-n{font-family:var(--sans);font-weight:700;color:var(--muted);margin-right:.35rem}
+
+footer{grid-column:2;max-width:42rem;margin-top:2.5rem;padding-top:.8rem;border-top:1px solid var(--rule);font-family:var(--sans);font-size:.9rem;color:var(--muted)}
+
+@media (min-width:1220px){
+  .page{grid-template-columns:13rem 42rem 18.5rem;column-gap:3rem;justify-content:center}
+  article{max-width:none}
+  .infobox{margin-right:-21.5rem;margin-left:1rem;margin-top:0}
+  .frieze{margin-right:-21.5rem}
+}
+@media (max-width:820px){
+  .page{grid-template-columns:minmax(0,1fr)}
+  .toc{position:static;max-height:none;margin:1.25rem 0 0;padding:.7rem .9rem;border:1px solid var(--rule);background:var(--panel)}
+  .toc summary{margin-bottom:0}
+  .toc details[open] summary{margin-bottom:.5rem}
+  h1{font-size:2.3rem;margin-top:1.4rem}
+  footer{grid-column:1}
+}
+@media (max-width:640px){
+  body{font-size:1.08rem}
+  .page,.topbar-inner{padding-left:1.1rem;padding-right:1.1rem}
+  .infobox{float:none;width:auto;margin:0 0 1.5rem}
+  .infobox figure{max-width:14rem;margin:0 auto .7rem}
+  ul.links{columns:1}
+}
 </style>
-    <script type="text/javascript" src="Scripts/iWebSite.js"></script>
-    <script type="text/javascript" src="Scripts/Widgets/SharedResources/WidgetCommon.js"></script>
-    <script type="text/javascript" src="Scripts/Widgets/Navbar/navbar.js"></script>
-    <script type="text/javascript" src="Scripts/iWebImage.js"></script>
-    <script type="text/javascript" src="Scripts/iWebMediaGrid.js"></script>
-    <script type="text/javascript" src="Scripts/Widgets/HTMLRegion/Paste.js"></script>
-    <script type="text/javascript" src="About_Me_files/About_Me.js"></script>
-  </head>
-  <body style="background: rgb(247, 246, 246); margin: 0pt; " onload="onPageLoad();" onunload="onPageUnload();">
-    <div style="text-align: center; ">
-      <div style="margin-bottom: 0px; margin-left: auto; margin-right: auto; margin-top: 0px; overflow: hidden; position: relative; word-wrap: break-word;  background: rgb(247, 246, 246); text-align: left; width: 700px; " id="body_content">
-        <div style="float: left; height: 0px; line-height: 0px; margin-left: 0px; position: relative; width: 700px; z-index: 10; " id="header_layer">
-          <div style="height: 0px; line-height: 0px; " class="bumper"> </div>
-        </div>
-        <div style="margin-left: 0px; position: relative; width: 700px; z-index: 0; " id="nav_layer">
-          <div style="height: 0px; line-height: 0px; " class="bumper"> </div>
-          <div style="height: 1px; line-height: 1px; " class="tinyText"> </div>
-          <div class="com-apple-iweb-widget-navbar flowDefining" id="widget0" style="margin-left: 0px; margin-top: 24px; opacity: 1.00; position: relative; width: 700px; z-index: 1; ">
-    
-            <div id="widget0-navbar" class="navbar">
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="site-name" href="#top">Sudeep Sarkar</a>
+    <nav aria-label="Profiles">
+      <ul>
+        <li><a href="https://usf.box.com/s/ngaaeqpt3u636zf6qf2gty2d3zexntrt">CV</a></li>
+        <li><a href="https://scholar.google.com/citations?user=xX2D9FQAAAAJ&amp;hl=en">Google Scholar</a></li>
+        <li><a href="https://dblp.uni-trier.de/pid/72/3470.html">DBLP</a></li>
+        <li><a href="https://orcid.org/0000-0001-7332-4207">ORCID</a></li>
+        <li><a href="https://github.com/SudeepSarkar">GitHub</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-      
-              <div id="widget0-bg" class="navbar-bg">
+<div class="page">
+  <nav class="toc" aria-label="Contents">
+    <details open id="toc-details">
+      <summary>Contents</summary>
+      <ul>
+        <li><a href="#top">Overview</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#research">Research</a>
+          <ul>
+            <li><a href="#perceptual-organization">Perceptual organization</a></li>
+            <li><a href="#evaluation">Evaluating vision algorithms</a></li>
+            <li><a href="#biometrics">Gait and biometrics</a></li>
+            <li><a href="#events">Events in video</a></li>
+            <li><a href="#applications">Science, health and the economy</a></li>
+          </ul>
+        </li>
+        <li><a href="#leadership">Academic leadership</a>
+          <ul>
+            <li><a href="#bellini">Bellini College</a></li>
+            <li><a href="#cse">Computer Science and Engineering</a></li>
+            <li><a href="#innovation">Research and innovation</a></li>
+          </ul>
+        </li>
+        <li><a href="#service">Service to the field</a></li>
+        <li><a href="#students">Students</a></li>
+        <li><a href="#teaching">Teaching</a></li>
+        <li><a href="#honors">Honors</a></li>
+        <li><a href="#patents">Patents</a></li>
+        <li><a href="#references">Selected publications</a></li>
+        <li><a href="#external">External links</a></li>
+      </ul>
+    </details>
+  </nav>
 
-        
-                <ul id="widget0-navbar-list" class="navbar-list">
- <li></li> 
+  <article>
+    <h1>Sudeep Sarkar</h1>
+    <p class="tagline">Computer vision researcher and university dean</p>
+    <p class="hatnote">This is Sarkar’s personal page. For the college he leads, see the <a href="https://www.usf.edu/ai-cybersecurity-computing/">Bellini College of Artificial Intelligence, Cybersecurity and Computing</a>.</p>
+
+    <figure class="frieze">
+      <svg class="gait" viewBox="0 0 808 106" role="img" aria-labelledby="gait-cap"><line class="ground" x1="0" y1="100" x2="808" y2="100"/><g class="pose" style="--i:0"><polyline class="far" points="36,57.05534256745175 29.1,77.9 21.2,98.5 27.2,99.0"/><polyline class="far" points="38,29.055342567451753 42.6,43.3 53.2,52.5"/><polyline class="near" points="36,57.05534256745175 38,29.1"/><circle class="head" cx="39.5" cy="19.1" r="5.5"/><polyline class="near" points="36,57.05534256745175 42.9,77.9 49.6,98.9 55.6,99.4"/><polyline class="near" points="38,29.055342567451753 33.4,43.3 33.9,57.3"/><circle class="joint" cx="36.0" cy="57.1" r="1.7"/><circle class="joint" cx="42.9" cy="77.9" r="1.7"/><circle class="joint" cx="49.6" cy="98.9" r="1.7"/><circle class="joint" cx="38.0" cy="29.1" r="1.7"/><circle class="joint" cx="33.4" cy="43.3" r="1.7"/></g><g class="pose" style="--i:1"><polyline class="far" points="136,55.13868793996761 133.8,77.0 119.7,93.9 125.7,94.4"/><polyline class="far" points="138,27.13868793996761 141.3,41.8 150.4,52.4"/><polyline class="near" points="136,55.13868793996761 138,27.1"/><circle class="head" cx="139.5" cy="17.1" r="5.5"/><polyline class="near" points="136,55.13868793996761 138.2,77.0 135.9,98.9 141.9,99.4"/><polyline class="near" points="138,27.13868793996761 134.7,41.8 136.5,55.7"/><circle class="joint" cx="136.0" cy="55.1" r="1.7"/><circle class="joint" cx="138.2" cy="77.0" r="1.7"/><circle class="joint" cx="135.9" cy="98.9" r="1.7"/><circle class="joint" cx="138.0" cy="27.1" r="1.7"/><circle class="joint" cx="134.7" cy="41.8" r="1.7"/></g><g class="pose" style="--i:2"><polyline class="far" points="236,55.61032923433789 239.9,77.3 225.7,94.1 231.7,94.6"/><polyline class="far" points="238,27.61032923433789 238.0,42.6 242.8,55.8"/><polyline class="near" points="236,55.61032923433789 238,27.6"/><circle class="head" cx="239.5" cy="17.6" r="5.5"/><polyline class="near" points="236,55.61032923433789 232.1,77.3 228.1,98.9 234.1,99.4"/><polyline class="near" points="238,27.61032923433789 238.0,42.6 242.8,55.8"/><circle class="joint" cx="236.0" cy="55.6" r="1.7"/><circle class="joint" cx="232.1" cy="77.3" r="1.7"/><circle class="joint" cx="228.1" cy="98.9" r="1.7"/><circle class="joint" cx="238.0" cy="27.6" r="1.7"/><circle class="joint" cx="238.0" cy="42.6" r="1.7"/></g><g class="pose" style="--i:3"><polyline class="far" points="336,56.706655670730036 343.6,77.4 348.0,98.9 354.0,99.4"/><polyline class="far" points="338,28.706655670730036 334.7,43.3 336.5,57.2"/><polyline class="near" points="336,56.706655670730036 338,28.7"/><circle class="head" cx="339.5" cy="18.7" r="5.5"/><polyline class="near" points="336,56.706655670730036 328.4,77.4 320.8,98.0 326.8,98.5"/><polyline class="near" points="338,28.706655670730036 341.3,43.3 350.4,54.0"/><circle class="joint" cx="336.0" cy="56.7" r="1.7"/><circle class="joint" cx="328.4" cy="77.4" r="1.7"/><circle class="joint" cx="320.8" cy="98.0" r="1.7"/><circle class="joint" cx="338.0" cy="28.7" r="1.7"/><circle class="joint" cx="341.3" cy="43.3" r="1.7"/></g><g class="pose" style="--i:4"><polyline class="far" points="436,57.05534256745175 442.9,77.9 449.6,98.9 455.6,99.4"/><polyline class="far" points="438,29.055342567451753 433.4,43.3 433.9,57.3"/><polyline class="near" points="436,57.05534256745175 438,29.1"/><circle class="head" cx="439.5" cy="19.1" r="5.5"/><polyline class="near" points="436,57.05534256745175 429.1,77.9 421.2,98.5 427.2,99.0"/><polyline class="near" points="438,29.055342567451753 442.6,43.3 453.2,52.5"/><circle class="joint" cx="436.0" cy="57.1" r="1.7"/><circle class="joint" cx="429.1" cy="77.9" r="1.7"/><circle class="joint" cx="421.2" cy="98.5" r="1.7"/><circle class="joint" cx="438.0" cy="29.1" r="1.7"/><circle class="joint" cx="442.6" cy="43.3" r="1.7"/></g><g class="pose" style="--i:5"><polyline class="far" points="536,55.13868793996761 538.2,77.0 535.9,98.9 541.9,99.4"/><polyline class="far" points="538,27.13868793996761 534.7,41.8 536.5,55.7"/><polyline class="near" points="536,55.13868793996761 538,27.1"/><circle class="head" cx="539.5" cy="17.1" r="5.5"/><polyline class="near" points="536,55.13868793996761 533.8,77.0 519.7,93.9 525.7,94.4"/><polyline class="near" points="538,27.13868793996761 541.3,41.8 550.4,52.4"/><circle class="joint" cx="536.0" cy="55.1" r="1.7"/><circle class="joint" cx="533.8" cy="77.0" r="1.7"/><circle class="joint" cx="519.7" cy="93.9" r="1.7"/><circle class="joint" cx="538.0" cy="27.1" r="1.7"/><circle class="joint" cx="541.3" cy="41.8" r="1.7"/></g><g class="pose" style="--i:6"><polyline class="far" points="636,55.61032923433789 632.1,77.3 628.1,98.9 634.1,99.4"/><polyline class="far" points="638,27.61032923433789 638.0,42.6 642.8,55.8"/><polyline class="near" points="636,55.61032923433789 638,27.6"/><circle class="head" cx="639.5" cy="17.6" r="5.5"/><polyline class="near" points="636,55.61032923433789 639.9,77.3 625.7,94.1 631.7,94.6"/><polyline class="near" points="638,27.61032923433789 638.0,42.6 642.8,55.8"/><circle class="joint" cx="636.0" cy="55.6" r="1.7"/><circle class="joint" cx="639.9" cy="77.3" r="1.7"/><circle class="joint" cx="625.7" cy="94.1" r="1.7"/><circle class="joint" cx="638.0" cy="27.6" r="1.7"/><circle class="joint" cx="638.0" cy="42.6" r="1.7"/></g><g class="pose" style="--i:7"><polyline class="far" points="736,56.706655670730036 728.4,77.4 720.8,98.0 726.8,98.5"/><polyline class="far" points="738,28.706655670730036 741.3,43.3 750.4,54.0"/><polyline class="near" points="736,56.706655670730036 738,28.7"/><circle class="head" cx="739.5" cy="18.7" r="5.5"/><polyline class="near" points="736,56.706655670730036 743.6,77.4 748.0,98.9 754.0,99.4"/><polyline class="near" points="738,28.706655670730036 734.7,43.3 736.5,57.2"/><circle class="joint" cx="736.0" cy="56.7" r="1.7"/><circle class="joint" cx="743.6" cy="77.4" r="1.7"/><circle class="joint" cx="748.0" cy="98.9" r="1.7"/><circle class="joint" cx="738.0" cy="28.7" r="1.7"/><circle class="joint" cx="734.7" cy="43.3" r="1.7"/></g></svg>
+      <figcaption id="gait-cap">One walking cycle, pose by pose. The way a person walks can identify them at a distance; measuring how well machines do this has been a thread of Sarkar’s research for more than two decades.</figcaption>
+    </figure>
+
+    <aside class="infobox" aria-label="Summary">
+      <p class="ib-name">Sudeep Sarkar</p>
+      <figure>
+        <img src="portrait.jpg" alt="Portrait of Sudeep Sarkar" width="480" height="600" id="portrait">
+        <div class="portrait-missing" hidden>Add portrait.jpg to the site folder to show a photograph here.</div>
+      </figure>
+      <table>
+        <tr><th scope="row">Positions</th><td><ul><li>Launch Dean, Bellini College of AI, Cybersecurity and Computing (2024–)</li><li>Distinguished University Professor (2021–)</li><li>Co-Director, USF Institute for AI + X</li></ul></td></tr>
+        <tr><th scope="row">Institution</th><td>University of South Florida</td></tr>
+        <tr><th scope="row">Fields</th><td>Computer vision, pattern recognition, biometrics</td></tr>
+        <tr><th scope="row">Education</th><td><ul><li>B.Tech., IIT Kanpur (1988)</li><li>M.S., Ph.D., The Ohio State University (1990, 1993)</li></ul></td></tr>
+        <tr><th scope="row">Doctoral advisor</th><td>Kim L. Boyer</td></tr>
+        <tr><th scope="row">Known for</th><td><ul><li>HumanID Gait Challenge</li><li>Perceptual organization</li><li>Pattern theory for video events</li></ul></td></tr>
+        <tr><th scope="row">Doctoral students</th><td><a href="#students">25 graduated</a></td></tr>
+        <tr><th scope="row">Honors</th><td><ul><li>Fellow of IEEE, AAAS, IAPR, AIMBE and NAI</li><li>ACM Distinguished Scientist (2024)</li><li>NAI Founder’s Award (2025)</li><li>NSF CAREER Award (1995)</li></ul></td></tr>
+      </table>
+    </aside>
+
+<section id="top" class="lead">
+<p><b>Sudeep Sarkar</b> is a computer scientist at the University of South Florida (USF) in Tampa, where he is a Distinguished University Professor and the Launch Dean of the Bellini College of Artificial Intelligence, Cybersecurity and Computing. His research is in computer vision and pattern recognition. He is known for the HumanID Gait Challenge, the benchmark used to measure progress in recognizing people from how they walk<sup class="cite"><a href="#ref-1" data-ref="1">[1]</a></sup>, and for early work on perceptual organization with Bayesian networks and graph spectral methods<sup class="cite"><a href="#ref-2" data-ref="2">[2]</a></sup><sup class="cite"><a href="#ref-3" data-ref="3">[3]</a></sup>.</p>
+<p>Sarkar joined USF in 1993. He chaired the Department of Computer Science and Engineering from 2016 to 2024, co-founded the USF Institute for Artificial Intelligence + X, and served in the university’s research office as an associate vice president. Since December 2024 he has led the creation of the Bellini College, which opened in fall 2025 with 3,210 students and 69 faculty. He was co-Editor-in-Chief of <i>Pattern Recognition Letters</i> from 2011 to 2025 and President of the IEEE Biometrics Council in 2019–2020. He is a Fellow of the IEEE, AAAS, IAPR, AIMBE and the National Academy of Inventors.</p>
+</section>
+
+<section id="education">
+<h2>Education</h2>
+<p>Sarkar received a B.Tech. in electrical engineering from the Indian Institute of Technology Kanpur in 1988, where he was named the best graduating electrical engineer of his class. He then completed an M.S. (1990) and a Ph.D. (1993) in electrical engineering at The Ohio State University under Kim L. Boyer, supported by a University Presidential Fellowship. His dissertation, <i>On Computing Perceptual Organization in Computer Vision</i>, set the direction of much of his early work.</p>
+</section>
+
+<section id="research">
+<h2>Research</h2>
+<p>Sarkar’s work follows two questions. First, how can a machine find structure in images and video (which pieces belong together, and what is happening) with little or no supervision? Second, how do we measure whether it has succeeded? The first question runs from perceptual organization in the 1990s to self-supervised event segmentation today. The second produced some of the field’s early evaluation methods and benchmarks.</p>
+
+<h3 id="perceptual-organization">Perceptual organization</h3>
+<p>Perceptual organization is the grouping of image features, such as edges and curves, into structures that probably belong to the same object before any object is recognized. Sarkar and Boyer’s 1993 review proposed a classification of the problem that laid out its open questions<sup class="cite"><a href="#ref-4" data-ref="4">[4]</a></sup>. The same year they used Bayesian networks to integrate spatial evidence for grouping, the first use of Bayesian networks for this problem in computer vision<sup class="cite"><a href="#ref-2" data-ref="2">[2]</a></sup>. Later they quantified the organization of a scene through the eigenvalues and eigenvectors of a graph of feature relations<sup class="cite"><a href="#ref-3" data-ref="3">[3]</a></sup>; this graph spectral view of grouping became a common approach to segmentation. In 2000, with Soundararajan, he showed that the parameters of such grouping can be learned from examples<sup class="cite"><a href="#ref-5" data-ref="5">[5]</a></sup>. An earlier paper designed recursive filters that meet Canny’s criteria for edge detection at much lower computational cost<sup class="cite"><a href="#ref-6" data-ref="6">[6]</a></sup>.</p>
+
+<h3 id="evaluation">Evaluating vision algorithms</h3>
+<p>In the 1990s most papers on edge detection showed output images and left judgment to the reader. With Heath, Sanocki and Bowyer, Sarkar showed how ratings from human observers can compare edge detectors rigorously, with statistical analysis of the ratings<sup class="cite"><a href="#ref-7" data-ref="7">[7]</a></sup><sup class="cite"><a href="#ref-8" data-ref="8">[8]</a></sup>. The same concern with measurement shaped his later benchmarks.</p>
+
+<h3 id="biometrics">Gait and biometrics</h3>
+<p>Gait is the way a person walks. It can be observed at a distance and without the person’s cooperation, which makes it attractive for identification. Before 2005, however, results were reported on small private datasets that could not be compared. The HumanID Gait Challenge, led by Sarkar with colleagues at NIST and the University of Notre Dame, supplied a common dataset, a baseline algorithm and a graded set of experiments that vary viewpoint, shoe type, walking surface, carrying condition and elapsed time<sup class="cite"><a href="#ref-1" data-ref="1">[1]</a></sup>. It became the standard benchmark for gait recognition. Follow-up work normalized for differences in walking dynamics so that a person could be matched across surfaces and carrying conditions<sup class="cite"><a href="#ref-9" data-ref="9">[9]</a></sup>.</p>
+<p>His group also showed that ear images identify people about as well as face images, and that the two combined do better than either<sup class="cite"><a href="#ref-10" data-ref="10">[10]</a></sup>. Work with Mohanty and Kasturi showed that a face template can be reconstructed from match scores alone, a privacy risk for deployed systems (U.S. Patent 8,165,352). Later projects covered gait from phone inertial sensors regardless of how the phone is carried (U.S. Patents 9,877,668 and 10,321,855) and recognition of people at long range<sup class="cite"><a href="#ref-11" data-ref="11">[11]</a></sup>.</p>
+
+<h3 id="events">Events in video</h3>
+<p>A second thread concerns what happens in a video. Following Grenander’s pattern theory, his group represents an interpretation of a scene as a graph of generators (objects, actions and the relations between them) and searches for the graph that best explains the observations<sup class="cite"><a href="#ref-12" data-ref="12">[12]</a></sup>. Pattern theory takes an analysis by synthesis approach. To recognize a pattern, a system must be able to generate it. The framework was extended with commonsense knowledge to describe videos of activities not seen in training<sup class="cite"><a href="#ref-13" data-ref="13">[13]</a></sup>, and to natural language inference<sup class="cite"><a href="#ref-14" data-ref="14">[14]</a></sup>.</p>
+<p>Recent work learns from streaming video without labels. STREAMER predicts what comes next at several time scales and places event boundaries where those predictions fail, giving a hierarchy of events in one pass<sup class="cite"><a href="#ref-15" data-ref="15">[15]</a></sup>. Predictive Attractor Models extend the idea to a sequence memory that can hold several possible futures and learn continually<sup class="cite"><a href="#ref-16" data-ref="16">[16]</a></sup>. EDGE-STREAMER runs the method on small on-device hardware<sup class="cite"><a href="#ref-17" data-ref="17">[17]</a></sup>.</p>
+
+<h3 id="applications">Vision for science, health and the economy</h3>
+<p>Several projects take these methods outside computer science. With ecologists Roman Gula and Jörn Theuerkauf, the group segments long wildlife videos into behavioral events for automated ethograms<sup class="cite"><a href="#ref-18" data-ref="18">[18]</a></sup> and calibrates monocular depth estimates for distance sampling in wildlife surveys<sup class="cite"><a href="#ref-19" data-ref="19">[19]</a></sup>. A current project detects sea turtle tracks in operational aerial surveys<sup class="cite"><a href="#ref-20" data-ref="20">[20]</a></sup>. Satellite images have been used to measure economic activity, for example by counting airplanes in flight during the COVID-19 pandemic<sup class="cite"><a href="#ref-21" data-ref="21">[21]</a></sup>, and to test how reliable foundation models are on such imagery<sup class="cite"><a href="#ref-22" data-ref="22">[22]</a></sup>. Medical work began with video-based assessment of burn scars from color, texture and elasticity, and continues with depth-camera measurement of pressure ulcers<sup class="cite"><a href="#ref-23" data-ref="23">[23]</a></sup> (U.S. Patent 12,524,899).</p>
+</section>
+
+<section id="leadership">
+<h2>Academic leadership</h2>
+<h3 id="bellini">Bellini College (2024–present)</h3>
+<p>In December 2024 Sarkar was appointed to lead the creation of a new college for artificial intelligence, cybersecurity and computing at USF. The college was established with a $40 million gift from Arnie and Lauren Bellini and opened in fall 2025 with 3,210 students and 69 faculty. It is building a hub-and-spoke model, in which the college works with all 13 USF colleges to bring AI and computing into their curricula. Its portfolio has grown from 10 to 22 active or planned programs, including B.S. and M.S. degrees in artificial intelligence and joint majors that combine computer science with business, criminology, economics, anthropology and the social sciences. The Tech Career Advancement Program (tCAP) adds career coaching, industry mentoring and a college-wide experiential learning requirement. A new building for the college is in design.</p>
+<h3 id="cse">Computer Science and Engineering (2016–2024)</h3>
+<p>As department chair, Sarkar led 34 tenure-track faculty and 14 instructors serving about 2,600 undergraduate and 300 graduate students. Annual research expenditures doubled over five years, to $4.6 million. The department started a B.S. in Cybersecurity, now ABET-accredited with more than 650 students, and joint graduate programs including a Ph.D. in Big Data Analytics with the Muma College of Business. The 2022 Pathway to Computing program prepares students without a computing background for the M.S. in Computer Science. In this period he also co-founded the USF Institute for Artificial Intelligence + X, which he co-directs.</p>
+<h3 id="innovation">Research and innovation (2009–2022)</h3>
+<p>From 2012 to 2016 Sarkar was Associate Vice President for Research and Innovation. He wrote the proposal that made USF an NSF I-Corps Site, directed the site, and created a Cyber Florida seed grant program that has linked researchers across twelve state universities since 2014. As Associate Vice President for Special Programs (2017–2022) he continued the I-Corps work and started a course modeled on the Department of Defense’s Hacking for Defense. With Paul Sanberg and others he has argued that patents and commercialization should count toward tenure<sup class="cite"><a href="#ref-24" data-ref="24">[24]</a></sup>. He has served on the Board of Directors of the National Academy of Inventors since 2013.</p>
+</section>
+
+<section id="service">
+<h2>Service to the field</h2>
+<div class="scroll"><table class="data">
+<thead><tr><th scope="col">Role</th><th scope="col">Years</th></tr></thead>
+<tbody>
+<tr><td>Co-Editor-in-Chief, <i>Pattern Recognition Letters</i></td><td>2011–2025</td></tr>
+<tr><td>Associate Editor, <i>IEEE Transactions on Pattern Analysis and Machine Intelligence</i></td><td>1999–2003, 2011–2017</td></tr>
+<tr><td>President, IEEE Biometrics Council</td><td>2019–2020</td></tr>
+<tr><td>Chair, IEEE Computer Society Technical Committee on Pattern Analysis and Machine Intelligence</td><td>2010–2012</td></tr>
+<tr><td>Governing Board, International Association for Pattern Recognition</td><td>2010–2012</td></tr>
+<tr><td>General Co-Chair, IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)</td><td>2024</td></tr>
+<tr><td>General Co-Chair, IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)</td><td>2013, 2017, 2027</td></tr>
+<tr><td>General Co-Chair, IEEE Conference on Automatic Face and Gesture Recognition</td><td>2019</td></tr>
+<tr><td>General Co-Chair, IEEE International Joint Conference on Biometrics</td><td>2014</td></tr>
+<tr><td>General Co-Chair, Indian Conference on Computer Vision, Graphics and Image Processing</td><td>2023</td></tr>
+<tr><td>General Co-Chair, first and second workshops on Perceptual Organization in Computer Vision</td><td>1998, 1999</td></tr>
+</tbody></table></div>
+</section>
+
+<section id="students">
+<h2>Students</h2>
+<p>Sarkar has supervised 25 doctoral dissertations to completion, as well as postdoctoral scholars and many master’s and undergraduate researchers. The table lists each doctoral graduate with the first organization named for them after graduation.</p>
+<div class="scroll"><table class="data students" id="phd-table">
+<thead><tr><th scope="col">Year</th><th scope="col">Graduate</th><th scope="col">Dissertation</th><th scope="col">Went on to</th></tr></thead>
+<tbody>
+<tr><td>2026</td><td>Gilbert Rotich</td><td>Geospatial understanding of foundation models: self-supervision, robustness, and resource constraints</td><td><span class='muted'>Not listed</span></td></tr>
+<tr><td>2025</td><td>Cole Hill</td><td>Dynamics-consistent representation learning for human motion analysis and identification</td><td>Meta</td></tr>
+<tr><td>2024</td><td>Ramy Mounir</td><td>On the role of prediction in streaming hierarchical learning</td><td>Numenta</td></tr>
+<tr><td>2019</td><td>Sathyanarayanan Aakur</td><td>Beyond labels and captions: contextualizing grounded semantics for explainable visual interpretation</td><td>Auburn University</td></tr>
+<tr><td>2018</td><td>Ravi Subramanian</td><td>Orientation invariance methods for inertial gait</td><td>L3 Communications</td></tr>
+<tr><td>2018</td><td>Earnest Hansley</td><td>Identification of individuals from ears in real-world conditions</td><td>U.S. Army</td></tr>
+<tr><td>2017</td><td>Fillipe de Souza</td><td>Semantic description of activities in videos</td><td>Intel</td></tr>
+<tr><td>2015</td><td>Ravi Panchumarthy</td><td>Direct solutions to perceptual organization problems</td><td>Intel</td></tr>
+<tr class="extra"><td>2014</td><td>Ravi Kiran Krishnan</td><td>Generalized conditional matching algorithm for ordered and unordered sets</td><td>Unifi Software</td></tr>
+<tr class="extra"><td>2014</td><td>Kester Duncan</td><td>Scene-dependent human intention recognition for an assistive robotic system</td><td>ObjectVideo</td></tr>
+<tr class="extra"><td>2012</td><td>Aveek Brahmachari</td><td>Basal graph structures for geometry-based organization of wide-baseline image collections</td><td>Samsung</td></tr>
+<tr class="extra"><td>2011</td><td>Saumya P. Amarasiri</td><td>Optical texture properties in the analysis of pavement digital images (co-advised with Gunaratne)</td><td>Radise International</td></tr>
+<tr class="extra"><td>2009</td><td>Vasant Manohar</td><td>Facial skin motion properties from video: modeling and applications (co-advised with Goldgof)</td><td>Raytheon BBN Technologies</td></tr>
+<tr class="extra"><td>2008</td><td>Himanshu Vajaria</td><td>Diarization, localization and indexing of meeting archives (co-advised with Kasturi)</td><td>Photon-X</td></tr>
+<tr class="extra"><td>2007</td><td>Ruiduo Yang</td><td>Dynamic programming with multiple candidates and its applications to sign language and hand gesture recognition</td><td>Qualcomm</td></tr>
+<tr class="extra"><td>2007</td><td>Sunita Nayak</td><td>Representation and learning in recognition of sign language</td><td>Photometria</td></tr>
+<tr class="extra"><td>2007</td><td>Pranab Mohanty</td><td>Learning from biometric distances: performance and security issues in face recognition (co-advised with Kasturi)</td><td>Aware Inc.</td></tr>
+<tr class="extra"><td>2007</td><td>Duminda Randeniya</td><td>Automatic geo-referencing by integrating camera vision and inertial measurements (co-advised with Gunaratne)</td><td>Oak Ridge National Laboratory</td></tr>
+<tr class="extra"><td>2007</td><td>Nivedita Das</td><td>Modeling three-dimensional shape of sand grains using the discrete element method (co-advised with Ashmawy)</td><td>GEI Consultants</td></tr>
+<tr class="extra"><td>2005</td><td>Yong Zhang</td><td>Robust algorithms for property recovery in motion modeling, medical imaging and biometrics (co-advised with Goldgof)</td><td>Youngstown State University</td></tr>
+<tr class="extra"><td>2004</td><td>Zongyi Liu</td><td>Gait-based human recognition at a distance: performance, covariate impact and solutions</td><td>Amazon</td></tr>
+<tr class="extra"><td>2004</td><td>Padmanabhan Soundararajan</td><td>Core issues in graph-based perceptual organization: spectral cut measures, learning</td><td>Nielsen Media Research</td></tr>
+<tr class="extra"><td>2002</td><td>Isidro Robledo-Vega</td><td>Motion models based on statistics of feature relations: human identification from gait</td><td>Instituto Tecnológico de Chihuahua</td></tr>
+<tr class="extra"><td>2000</td><td>Mark Powell</td><td>Towards objective color from images (USF Outstanding Dissertation Award)</td><td>Jet Propulsion Laboratory</td></tr>
+<tr class="extra"><td>1999</td><td>Leonid Tsap</td><td>Physically-based modeling of nonrigid motion in biomechanics problems (co-advised with Goldgof; USF Outstanding Dissertation Award)</td><td>Lawrence Livermore National Laboratory</td></tr>
+</tbody></table></div>
+<p class="more"><button type="button" id="show-students" aria-controls="phd-table" aria-expanded="false">Show all 25 graduates</button></p>
+<p>Current doctoral students are Ahmed Shahabaz, Sujal Tiru Vijayaraghavan, Caio Cesar, Carl Ayala and Lucas Miller. Past postdoctoral scholars include Mauricio Pamplona Segundo, Michal Balazia, Rodrigo Minetto and Guillermo Camara Chavez.</p>
+</section>
+
+<section id="teaching">
+<h2>Teaching</h2>
+<p>Sarkar has taught graduate computer vision at USF since 1994, most recently in fall 2026. Other courses include data structures, computational geometry, digital image processing, pattern recognition, probabilistic inference and ethics in computing. An NSF grant (2000–2002) supported his work bringing image computation into the undergraduate data structures course. He received USF’s Teaching Incentive Program Award in 1996, its Outstanding Undergraduate Teaching Award in 1998, and the Florida Education Fund’s William R. Jones Outstanding Mentor Award in 2017.</p>
+</section>
+
+<section id="honors">
+<h2>Honors</h2>
+<div class="scroll"><table class="data">
+<thead><tr><th scope="col">Year</th><th scope="col">Honor</th></tr></thead>
+<tbody>
+<tr><td>2025</td><td>Founder’s Award, National Academy of Inventors</td></tr>
+<tr><td>2024</td><td>ACM Distinguished Scientist</td></tr>
+<tr><td>2021</td><td>Distinguished University Professor, USF</td></tr>
+<tr><td>2021</td><td>Member, Academy of Science, Engineering and Medicine of Florida</td></tr>
+<tr><td>2020</td><td>IET Biometrics Premium Award for best paper</td></tr>
+<tr><td>2017</td><td>William R. Jones Outstanding Mentor Award, Florida Education Fund</td></tr>
+<tr><td>2016</td><td>Fellow, National Academy of Inventors</td></tr>
+<tr><td>2016</td><td>Fellow, American Institute for Medical and Biological Engineering</td></tr>
+<tr><td>2014</td><td>Best Scientific Paper Award, International Conference on Pattern Recognition</td></tr>
+<tr><td>2014</td><td>Outstanding Faculty Award, USF</td></tr>
+<tr><td>2013</td><td>Fellow, American Association for the Advancement of Science</td></tr>
+<tr><td>2013</td><td>Fellow, Institute of Electrical and Electronics Engineers</td></tr>
+<tr><td>2010–2012</td><td>IEEE Computer Society Distinguished Visitor</td></tr>
+<tr><td>2008</td><td>Fellow, International Association for Pattern Recognition</td></tr>
+<tr><td>2004</td><td>Theodore and Venette Askounes-Ashford Distinguished Scholar Award, USF</td></tr>
+<tr><td>1995</td><td>CAREER Award, National Science Foundation</td></tr>
+</tbody></table></div>
+</section>
+
+<section id="patents">
+<h2>Patents</h2>
+<p>Sarkar is a named inventor on 11 U.S. patents, which have been cited by more than 175 later patents. One, on generating structured data from semi-structured data, has been licensed.</p>
+<ol class="plain">
+<li>Automatic pressure ulcer measurement. U.S. 12,524,899 (2026).</li>
+<li>Automatic generation of structured data from semi-structured data. U.S. 10,467,244 (2019).</li>
+<li>Unconstrained ear recognition using a combination of deep learning and handcrafted features. U.S. 10,423,823 (2019).</li>
+<li>Orientation invariant gait matching. U.S. 10,321,855 (2019) and 9,877,668 (2018).</li>
+<li>Magnetic coprocessor and method of use. U.S. 10,198,402 (2019).</li>
+<li>Programmable magnetic energy minimizing co-processor. U.S. 9,720,599 (2017).</li>
+<li>Estimating the magnetization states of a nanomagnet array. U.S. 9,286,687 (2016).</li>
+<li>Indexing face templates using linear models. U.S. 8,331,632 (2012).</li>
+<li>Reconstruction of biometric image templates using match scores. U.S. 8,165,352 (2012).</li>
+<li>Computer vision technique for objective assessment of material properties in nonrigid objects. U.S. 6,594,381 (2003).</li>
+</ol>
+</section>
+
+<section id="references">
+<h2>Selected publications</h2>
+<p>The numbered list below holds the papers cited on this page. Sarkar’s full record of more than 14,900 citations (Google Scholar, October 2026) is on <a href="https://scholar.google.com/citations?user=xX2D9FQAAAAJ&amp;hl=en">Google Scholar</a> and <a href="https://dblp.uni-trier.de/pid/72/3470.html">DBLP</a>.</p>
+<ol class="refs">
+<li id="ref-1">S. Sarkar, P. J. Phillips, Z. Liu, I. Robledo, P. Grother and K. W. Bowyer, “The HumanID Gait Challenge Problem: Data Sets, Performance, and Analysis,” <i>IEEE Transactions on Pattern Analysis and Machine Intelligence</i>, vol. 27, no. 2, pp. 162–177, 2005.</li>
+<li id="ref-2">S. Sarkar and K. L. Boyer, “Integration, Inference, and Management of Spatial Information Using Bayesian Networks: Perceptual Organization,” <i>IEEE Transactions on Pattern Analysis and Machine Intelligence</i>, vol. 15, no. 3, pp. 256–274, 1993.</li>
+<li id="ref-3">S. Sarkar and K. L. Boyer, “Quantitative Measures of Change Based on Feature Organization: Eigenvalues and Eigenvectors,” <i>Computer Vision and Image Understanding</i>, vol. 71, no. 1, pp. 110–136, 1998.</li>
+<li id="ref-4">S. Sarkar and K. L. Boyer, “Perceptual Organization in Computer Vision: A Review and a Proposal for a Classificatory Structure,” <i>IEEE Transactions on Systems, Man, and Cybernetics</i>, vol. 23, no. 2, pp. 382–399, 1993.</li>
+<li id="ref-5">S. Sarkar and P. Soundararajan, “Supervised Learning of Large Perceptual Organization: Graph Spectral Partitioning and Learning Automata,” <i>IEEE Transactions on Pattern Analysis and Machine Intelligence</i>, vol. 22, no. 5, pp. 504–525, 2000.</li>
+<li id="ref-6">S. Sarkar and K. L. Boyer, “On Optimal Infinite Impulse Response Edge Detection Filters,” <i>IEEE Transactions on Pattern Analysis and Machine Intelligence</i>, vol. 13, no. 11, pp. 1154–1171, 1991.</li>
+<li id="ref-7">M. Heath, S. Sarkar, T. Sanocki and K. W. Bowyer, “A Robust Visual Method for Assessing the Relative Performance of Edge Detection Algorithms,” <i>IEEE Transactions on Pattern Analysis and Machine Intelligence</i>, vol. 19, no. 12, pp. 1338–1359, 1997.</li>
+<li id="ref-8">M. Heath, S. Sarkar, T. Sanocki and K. W. Bowyer, “Comparison of Edge Detectors: A Methodology and Initial Study,” <i>Computer Vision and Image Understanding</i>, vol. 69, no. 1, pp. 38–54, 1998.</li>
+<li id="ref-9">Z. Liu and S. Sarkar, “Improved Gait Recognition by Gait Dynamics Normalization,” <i>IEEE Transactions on Pattern Analysis and Machine Intelligence</i>, vol. 28, no. 6, pp. 863–876, 2006.</li>
+<li id="ref-10">K. Chang, K. W. Bowyer, S. Sarkar and B. Victor, “Comparison and Combination of Ear and Face Images in Appearance-Based Biometrics,” <i>IEEE Transactions on Pattern Analysis and Machine Intelligence</i>, vol. 25, no. 9, pp. 1160–1165, 2003.</li>
+<li id="ref-11">D. Du, C. Hill, G. Bertocco, M. Pamplona Segundo, W. Robbins, B. RichardWebster, R. Collins, S. Sarkar, T. Boult and S. McCloskey, “DOERS: Distant Observation Enhancement and Recognition System,” <i>IEEE International Joint Conference on Biometrics (IJCB)</i>, 2023.</li>
+<li id="ref-12">F. de Souza, S. Sarkar, A. Srivastava and J. Su, “<a href="https://link.springer.com/article/10.1007/s11263-016-0913-6">Spatially Coherent Interpretations of Videos Using Pattern Theory,</a>” <i>International Journal of Computer Vision</i>, vol. 121, no. 1, pp. 5–25, 2017.</li>
+<li id="ref-13">S. N. Aakur, F. de Souza and S. Sarkar, “Generating Open World Descriptions of Video Using Common Sense Knowledge in a Pattern Theory Framework,” <i>Quarterly of Applied Mathematics</i>, vol. 77, pp. 323–356, 2019.</li>
+<li id="ref-14">S. Aakur and S. Sarkar, “<a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=10158053">Leveraging Symbolic Knowledge Bases for Commonsense Natural Language Inference Using Pattern Theory,</a>” <i>IEEE Transactions on Pattern Analysis and Machine Intelligence</i>, vol. 45, no. 11, 2023.</li>
+<li id="ref-15">R. Mounir, S. T. Vijayaraghavan and S. Sarkar, “STREAMER: Streaming Representation Learning and Event Segmentation in a Hierarchical Manner,” <i>Advances in Neural Information Processing Systems (NeurIPS)</i>, 2023.</li>
+<li id="ref-16">R. Mounir and S. Sarkar, “Predictive Attractor Models,” <i>Advances in Neural Information Processing Systems (NeurIPS)</i>, 2024.</li>
+<li id="ref-17">L. Miller and S. Sarkar, “EDGE-STREAMER: Lightweight On-Device Event-Hierarchy Segmentation in Streaming Video,” <i>Indian Conference on Computer Vision, Graphics and Image Processing (ICVGIP)</i>, 2026.</li>
+<li id="ref-18">R. Mounir, A. Shahabaz, R. Gula, J. Theuerkauf and S. Sarkar, “<a href="https://link.springer.com/content/pdf/10.1007/s11263-023-01781-2.pdf">Towards Automated Ethogramming: Cognitively Inspired Event Segmentation for Streaming Wildlife Video Monitoring,</a>” <i>International Journal of Computer Vision</i>, vol. 131, 2023.</li>
+<li id="ref-19">A. Shahabaz, J. Toczydłowska, R. Gula, J. Theuerkauf and S. Sarkar, “<a href="https://doi.org/10.1016/j.ecoinf.2026.103846">From Relative to Metric: Calibrating AI-Based Monocular Depth Learning Models for Distance Sampling in Wildlife Monitoring Applications,</a>” <i>Ecological Informatics</i>, vol. 96, 103846, 2026.</li>
+<li id="ref-20">C. Ayala, S. Sarkar, L. P. Griffin, M. M. Lamont and S. Snow, “TurtleVision: A Deployed Multiscale Ensemble for Sea Turtle Track Detection in Operational Aerial Surveys,” <i>IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)</i>, 2027.</li>
+<li id="ref-21">M. P. Segundo, A. Pinto, R. Minetto, R. da Silva Torres and S. Sarkar, “<a href="https://ieeexplore.ieee.org/document/9472964">Measuring Economic Activity from Space: A Case Study Using Flying Airplanes and COVID-19,</a>” <i>IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing</i>, vol. 14, pp. 7213–7224, 2021.</li>
+<li id="ref-22">G. Rotich and S. Sarkar, “<a href="https://ieeexplore.ieee.org/document/11039825">Evaluating the Robustness of Foundation Models for Satellite Imagery,</a>” <i>IEEE Access</i>, vol. 13, pp. 107720–107735, 2025.</li>
+<li id="ref-23">C. Y. Pai, H. Morera, S. Sarkar, Y. Huang, K. S. Hall, L. J. Cowan, M. Peterson and D. Goldgof, “<a href="https://www.magonlinelibrary.com/doi/abs/10.12968/jowc.2021.0171">Automated Pressure Ulcer Dimension Measurements Using a Depth Camera,</a>” <i>Journal of Wound Care</i>, vol. 34, no. 3, pp. 205–214, 2025.</li>
+<li id="ref-24">P. R. Sanberg, M. Gharib, P. T. Harker, E. W. Kaler, R. B. Marchase, T. D. Sands, N. Arshadi and S. Sarkar, “<a href="http://www.pnas.org/content/early/2014/04/25/1404094111">Changing the Academic Culture: Valuing Patents and Commercialization toward Tenure and Career Advancement,</a>” <i>Proceedings of the National Academy of Sciences</i>, 2014.</li>
+</ol>
+</section>
+
+<section id="external">
+<h2>External links</h2>
+<ul class="plain links">
+<li><a href="https://www.usf.edu/ai-cybersecurity-computing/people/faculty/sarkar-sudeep.aspx">USF faculty profile</a></li>
+<li><a href="https://scholar.google.com/citations?user=xX2D9FQAAAAJ&amp;hl=en">Google Scholar</a></li>
+<li><a href="https://dblp.uni-trier.de/pid/72/3470.html">DBLP</a></li>
+<li><a href="https://orcid.org/0000-0001-7332-4207">ORCID 0000-0001-7332-4207</a></li>
+<li><a href="https://github.com/SudeepSarkar">GitHub</a></li>
+<li><a href="https://www.linkedin.com/in/profsudeepsarkar">LinkedIn</a></li>
+<li><a href="https://usf.box.com/s/ngaaeqpt3u636zf6qf2gty2d3zexntrt">Curriculum vitae</a></li>
 </ul>
-                
-      
+<p class="contact">Contact: <a href="mailto:sarkar@usf.edu">sarkar@usf.edu</a>. Office ENB 345, University of South Florida, 4202 East Fowler Avenue, Tampa, Florida 33620. Telephone (813) 974-2113.</p>
+</section>
+
+  </article>
+
+  <footer>
+    <p>This page was last updated in November 2026.</p>
+  </footer>
 </div>
-              
-    
-</div>
-          </div>
-          <script type="text/javascript"><!--//--><![CDATA[//><!--
-new NavBar('widget0', 'Scripts/Widgets/Navbar', 'Scripts/Widgets/SharedResources', '.', {"path-to-root": "", "navbar-css": ".navbar {\n\tfont-family: 'Helvetica Neue', Arial, sans-serif;\n\tfont-size: .85em;\n\tcolor: #999;\n\tmargin: 0px;\n\tline-height: 20px;\n\tfont-weight: bold;\n}\n\n.navbar-bg {\n\ttext-align: left;\n\tpadding: 0px;\n}\n\n.navbar-bg ul {\n\tlist-style: none;\n\tmargin: 0px;\n\tpadding: 0px;\n}\n\n\nli {\n\tlist-style-type: none;\n\tdisplay: inline;\n\tpadding: 0px 15px 0px 10px;\n}\n\n\nli a {\n\ttext-decoration: none;\n\tcolor: #999;\n}\n\nli a:visited {\n\ttext-decoration: none;\n\tcolor: #999;\n}\n\nli a:hover\n{\n \tcolor: #F00;\n\ttext-decoration: none;\n}\n\n\nli.current-page a\n{\n\t color: #666;\n\ttext-decoration: none;\n\n}", "current-page-GUID": "6193CF5E-96B8-474E-82C7-9EB2B0D858CC", "isCollectionPage": "NO"});
-//--><!]]></script>
-          <div style="clear: both; height: 0px; line-height: 0px; " class="spacer"> </div>
-        </div>
-        <div style="margin-left: 0px; position: relative; width: 700px; z-index: 5; " id="body_layer">
-          <div style="height: 0px; line-height: 0px; " class="bumper"> </div>
-          <div id="id1" style="height: 135px; left: 16px; position: absolute; top: 745px; width: 120px; z-index: 1; " class="style_SkipStroke shape-with-text stroke_0">
-            <div class="text-content graphic_textbox_layout_style_default_External_118_133" style="padding: 1px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <p style="padding-top: 0pt; " class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p style="padding-bottom: 0pt; " class="Body"><a onclick="window.open(this.href); return false;" title="https://awards.research.usf.edu/" href="https://awards.research.usf.edu/" onkeypress="window.open(this.href); return false;">External Faculty Honors</a></p>
-              </div>
-            </div>
-          </div>
-          
 
-
-          <div style="height: 400px; width: 700px;  height: 400px; left: 0px; position: absolute; top: 0px; width: 700px; z-index: 1; " class="tinyText">
-            <div style="position: relative; width: 700px; ">
-              <img src="About_Me_files/shapeimage_1.png" alt="" style="height: 400px; left: 0px; position: absolute; top: 0px; width: 700px; " />
-            </div>
-          </div>
-          
-
-
-          <div style="height: 44px; width: 103px;  height: 44px; left: 24px; position: absolute; top: 766px; width: 103px; z-index: 1; " class="tinyText stroke_1 shadow_0">
-            <div style="position: relative; width: 103px; ">
-              <a href="http://innovation.usf.edu/icorps/" title="http://innovation.usf.edu/icorps/" onclick="window.open(this.href); return false;" onkeypress="window.open(this.href); return false;"><img src="About_Me_files/shapeimage_2.png" alt="" style="height: 44px; left: 0px; position: absolute; top: 0px; width: 100px; " /></a>
-            </div>
-          </div>
-          
-
-
-          <div id="id2" style="height: 176px; left: 1px; position: absolute; top: 227px; width: 522px; z-index: 1; " class="style_SkipStroke_1 shape-with-text">
-            <div class="text-content graphic_textbox_layout_style_default_External_522_176" style="padding: 0px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <p style="padding-top: 0pt; " class="paragraph_style">Profess<span class="style">or and Chair,</span><span class="style_1"> </span><br /></p>
-                <p class="paragraph_style"><a onclick="window.open(this.href); return false;" title="http://www.csee.usf.edu/" href="http://www.csee.usf.edu/" onkeypress="window.open(this.href); return false;" class="class1">Computer Science and Engineering</a> <br /></p>
-                <p class="paragraph_style">Associate Vice-President for USF I-Corps Programs<br /></p>
-                <p class="paragraph_style">4202 E Fowler Ave., ENG 118<br /></p>
-                <p class="paragraph_style">Tampa, FL 33647<br /></p>
-                <p class="paragraph_style">Phone: 813 974 2113<br /></p>
-                <p style="padding-bottom: 0pt; " class="paragraph_style">Email: sarkar@usf edu</p>
-              </div>
-            </div>
-          </div>
-          <div class="com-apple-iweb-widget-HTMLRegion" id="widget1" style="height: 144px; left: 12px; opacity: 1.00; position: absolute; top: 2002px; width: 111px; z-index: 1; ">
-            <script type="text/javascript"><!--//--><![CDATA[//><!--
-    var widget1_htmlMarkupURL = ".//About_Me_files/widget1_markup.html";
-//--><!]]></script>
-            <div id="widget1-htmlRegion" class="html_region_widget"></div>
-          </div>
-          <script type="text/javascript"><!--//--><![CDATA[//><!--
-new Paste('widget1', 'Scripts/Widgets/HTMLRegion', 'Scripts/Widgets/SharedResources', '.', {"emptyLook": false});
-//--><!]]></script>
-          <div class="com-apple-iweb-widget-HTMLRegion" id="widget2" style="height: 132px; left: 303px; opacity: 1.00; position: absolute; top: 2008px; width: 111px; z-index: 1; ">
-            <script type="text/javascript"><!--//--><![CDATA[//><!--
-    var widget2_htmlMarkupURL = ".//About_Me_files/widget2_markup.html";
-//--><!]]></script>
-            <div id="widget2-htmlRegion" class="html_region_widget"></div>
-          </div>
-          <script type="text/javascript"><!--//--><![CDATA[//><!--
-new Paste('widget2', 'Scripts/Widgets/HTMLRegion', 'Scripts/Widgets/SharedResources', '.', {"emptyLook": false});
-//--><!]]></script>
-          <div class="com-apple-iweb-widget-HTMLRegion" id="widget3" style="height: 132px; left: 159px; opacity: 1.00; position: absolute; top: 2008px; width: 111px; z-index: 1; ">
-            <script type="text/javascript"><!--//--><![CDATA[//><!--
-    var widget3_htmlMarkupURL = ".//About_Me_files/widget3_markup.html";
-//--><!]]></script>
-            <div id="widget3-htmlRegion" class="html_region_widget"></div>
-          </div>
-          <script type="text/javascript"><!--//--><![CDATA[//><!--
-new Paste('widget3', 'Scripts/Widgets/HTMLRegion', 'Scripts/Widgets/SharedResources', '.', {"emptyLook": false});
-//--><!]]></script>
-          <div class="com-apple-iweb-widget-HTMLRegion" id="widget4" style="height: 75px; left: 14px; opacity: 1.00; position: absolute; top: 2339px; width: 657px; z-index: 1; ">
-            <script type="text/javascript"><!--//--><![CDATA[//><!--
-    var widget4_htmlMarkupURL = ".//About_Me_files/widget4_markup.html";
-//--><!]]></script>
-            <div id="widget4-htmlRegion" class="html_region_widget"></div>
-          </div>
-          <script type="text/javascript"><!--//--><![CDATA[//><!--
-new Paste('widget4', 'Scripts/Widgets/HTMLRegion', 'Scripts/Widgets/SharedResources', '.', {"emptyLook": false});
-//--><!]]></script>
-          <div id="id3" style="height: 117px; left: 149px; position: absolute; top: 425px; width: 117px; z-index: 1; " class="style_SkipStroke shape-with-text stroke_2">
-            <div class="text-content graphic_textbox_layout_style_default_External_115_115" style="padding: 1px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <p style="padding-top: 0pt; " class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p style="padding-bottom: 0pt; " class="Body"><a onclick="window.open(this.href); return false;" title="https://www.linkedin.com/in/profsudeepsarkar" href="https://www.linkedin.com/in/profsudeepsarkar" onkeypress="window.open(this.href); return false;">Linkedin Profile</a></p>
-              </div>
-            </div>
-          </div>
-          
-
-
-          <div style="height: 47px; width: 110px;  height: 47px; left: 153px; position: absolute; top: 448px; width: 110px; z-index: 1; " class="tinyText stroke_3 shadow_1">
-            <div style="position: relative; width: 110px; ">
-              <img src="About_Me_files/shapeimage_3.png" alt="" style="height: 47px; left: 0px; position: absolute; top: 0px; width: 110px; " />
-            </div>
-          </div>
-          
-
-
-          <div id="id4" style="height: 115px; left: 14px; position: absolute; top: 427px; width: 115px; z-index: 1; " class="style_SkipStroke shape-with-text stroke_4">
-            <div class="text-content graphic_textbox_layout_style_default_External_113_113" style="padding: 1px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <p style="padding-top: 0pt; " class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p style="padding-bottom: 0pt; " class="Body"><a onclick="window.open(this.href); return false;" title="https://scholar.google.com/citations?user=xX2D9FQAAAAJ&amp;hl=en" href="https://scholar.google.com/citations?user=xX2D9FQAAAAJ&amp;hl=en" onkeypress="window.open(this.href); return false;">Google Scholar</a></p>
-              </div>
-            </div>
-          </div>
-          
-
-
-          <div style="height: 46px; width: 110px;  height: 46px; left: 16px; position: absolute; top: 449px; width: 110px; z-index: 1; " class="tinyText stroke_3 shadow_2">
-            <div style="position: relative; width: 110px; ">
-              <img src="About_Me_files/shapeimage_4.png" alt="" style="height: 40px; left: 0px; margin-top: 2px; position: absolute; top: 0px; width: 110px; " />
-            </div>
-          </div>
-          
-
-
-          <div id="id5" style="height: 111px; left: 293px; position: absolute; top: 430px; width: 116px; z-index: 1; " class="style_SkipStroke shape-with-text stroke_5">
-            <div class="text-content graphic_textbox_layout_style_default_External_114_109" style="padding: 1px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <p style="padding-top: 0pt; " class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p style="padding-bottom: 0pt; " class="Body"><a onclick="window.open(this.href); return false;" title="http://www.researcherid.com/rid/A-8213-2009" href="http://www.researcherid.com/rid/A-8213-2009" onkeypress="window.open(this.href); return false;">Research ID</a></p>
-              </div>
-            </div>
-          </div>
-          
-
-
-          <div style="height: 23px; width: 110px;  height: 23px; left: 296px; position: absolute; top: 460px; width: 110px; z-index: 1; " class="tinyText stroke_3 shadow_3">
-            <div style="position: relative; width: 110px; ">
-              <img src="About_Me_files/shapeimage_5.png" alt="" style="height: 23px; left: 0px; position: absolute; top: 0px; width: 110px; " />
-            </div>
-          </div>
-          
-
-
-          <div id="id6" style="height: 115px; left: 433px; position: absolute; top: 428px; width: 115px; z-index: 1; " class="style_SkipStroke shape-with-text stroke_6">
-            <div class="text-content graphic_textbox_layout_style_default_External_113_113" style="padding: 1px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <p style="padding-top: 0pt; " class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body">Twitter d<br /></p>
-                <p style="padding-bottom: 0pt; " class="Body"><a onclick="window.open(this.href); return false;" title="https://twitter.com/sudeepsarkar" href="https://twitter.com/sudeepsarkar" onkeypress="window.open(this.href); return false;">Twitter Feed</a></p>
-              </div>
-            </div>
-          </div>
-          
-
-
-          <div style="height: 83px; width: 110px;  height: 83px; left: 435px; position: absolute; top: 430px; width: 110px; z-index: 1; " class="tinyText stroke_3 shadow_4">
-            <div style="position: relative; width: 110px; ">
-              <img src="About_Me_files/shapeimage_6.png" alt="" style="height: 83px; left: 0px; position: absolute; top: 0px; width: 110px; " />
-            </div>
-          </div>
-          
-
-
-          <div id="id7" style="height: 113px; left: 578px; position: absolute; top: 427px; width: 116px; z-index: 1; " class="style_SkipStroke shape-with-text stroke_7">
-            <div class="text-content graphic_textbox_layout_style_default_External_114_111" style="padding: 1px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <p style="padding-top: 0pt; " class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p style="padding-bottom: 0pt; " class="Body"><a onclick="window.open(this.href); return false;" title="http://orcid.org/0000-0001-7332-4207" href="http://orcid.org/0000-0001-7332-4207" onkeypress="window.open(this.href); return false;">ORC ID</a></p>
-              </div>
-            </div>
-          </div>
-          
-
-
-          <div style="height: 36px; width: 110px;  height: 36px; left: 581px; position: absolute; top: 454px; width: 110px; z-index: 1; " class="tinyText stroke_3 shadow_5">
-            <div style="position: relative; width: 110px; ">
-              <img src="About_Me_files/shapeimage_7.png" alt="" style="height: 36px; left: 0px; position: absolute; top: 0px; width: 110px; " />
-            </div>
-          </div>
-          
-
-
-          <div id="id8" style="height: 116px; left: 14px; position: absolute; top: 571px; width: 116px; z-index: 1; " class="style_SkipStroke shape-with-text stroke_8">
-            <div class="text-content graphic_textbox_layout_style_default_External_114_114" style="padding: 1px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <p style="padding-top: 0pt; " class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body">Pattern<br /></p>
-                <p class="Body"><br /></p>
-                <p style="padding-bottom: 0pt; " class="Body"><a onclick="window.open(this.href); return false;" title="http://www.journals.elsevier.com/pattern-recognition-letters/" href="http://www.journals.elsevier.com/pattern-recognition-letters/" onkeypress="window.open(this.href); return false;">PR Letters EIC</a></p>
-              </div>
-            </div>
-          </div>
-          
-
-
-          <div style="height: 83px; width: 108px;  height: 83px; left: 18px; position: absolute; top: 574px; width: 108px; z-index: 1; " class="tinyText stroke_3 shadow_6">
-            <div style="position: relative; width: 108px; ">
-              <img src="About_Me_files/shapeimage_8.png" alt="" style="height: 83px; left: 0px; position: absolute; top: 0px; width: 108px; " />
-            </div>
-          </div>
-          
-
-
-          <div id="id9" style="height: 116px; left: 149px; position: absolute; top: 572px; width: 116px; z-index: 1; " class="style_SkipStroke shape-with-text stroke_9">
-            <div class="text-content graphic_textbox_layout_style_default_External_114_114" style="padding: 1px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <p style="padding-top: 0pt; " class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body">Pattern<br /></p>
-                <p class="Body"><br /></p>
-                <p style="padding-bottom: 0pt; " class="Body"><a onclick="window.open(this.href); return false;" title="https://www.dropbox.com/s/pz9l5l14sutiwv3/Sudeep_Sarkar_CV-2017.pdf?dl=0" href="https://www.dropbox.com/s/pz9l5l14sutiwv3/Sudeep_Sarkar_CV-2017.pdf?dl=0" onkeypress="window.open(this.href); return false;">CV in PDF</a></p>
-              </div>
-            </div>
-          </div>
-          
-
-
-          <div style="height: 83px; width: 110px;  height: 83px; left: 153px; position: absolute; top: 575px; width: 110px; z-index: 1; " class="tinyText stroke_3 shadow_7">
-            <div style="position: relative; width: 110px; ">
-              <img src="About_Me_files/shapeimage_9.png" alt="" style="height: 83px; left: 0px; position: absolute; top: 0px; width: 110px; " />
-            </div>
-          </div>
-          
-
-
-          <div id="id10" style="height: 135px; left: 150px; position: absolute; top: 746px; width: 116px; z-index: 1; " class="style_SkipStroke shape-with-text stroke_10">
-            <div class="text-content graphic_textbox_layout_style_default_External_114_133" style="padding: 1px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <p style="padding-top: 0pt; " class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p style="padding-bottom: 0pt; " class="Body"><a onclick="window.open(this.href); return false;" title="http://innovation.usf.edu/icorps/" href="http://innovation.usf.edu/icorps/" onkeypress="window.open(this.href); return false;">ICORPS Site at USF</a></p>
-              </div>
-            </div>
-          </div>
-          
-
-
-          <div style="height: 83px; width: 110px;  height: 83px; left: 153px; position: absolute; top: 748px; width: 110px; z-index: 1; " class="tinyText stroke_3 shadow_8">
-            <div style="position: relative; width: 110px; ">
-              <a href="http://innovation.usf.edu/icorps/" title="http://innovation.usf.edu/icorps/" onclick="window.open(this.href); return false;" onkeypress="window.open(this.href); return false;"><img src="About_Me_files/shapeimage_10.png" alt="" style="height: 83px; left: 0px; position: absolute; top: 0px; width: 110px; " /></a>
-            </div>
-          </div>
-          
-
-
-          <div id="id11" style="height: 131px; left: 295px; position: absolute; top: 748px; width: 112px; z-index: 1; " class="style_SkipStroke shape-with-text stroke_11">
-            <div class="text-content graphic_textbox_layout_style_default_External_110_129" style="padding: 1px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <p style="padding-top: 0pt; " class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p style="padding-bottom: 0pt; " class="Body"><a onclick="window.open(this.href); return false;" title="http://www.tampabaywave.org/" href="http://www.tampabaywave.org/" onkeypress="window.open(this.href); return false;">Accelerator at Downtown</a></p>
-              </div>
-            </div>
-          </div>
-          
-
-
-          <div style="height: 71px; width: 105px;  height: 71px; left: 299px; position: absolute; top: 753px; width: 105px; z-index: 1; " class="tinyText stroke_3 shadow_9">
-            <div style="position: relative; width: 105px; ">
-              <a href="http://www.tampabaywave.org/" title="http://www.tampabaywave.org/" onclick="window.open(this.href); return false;" onkeypress="window.open(this.href); return false;"><img src="About_Me_files/shapeimage_11.png" alt="" style="height: 71px; left: 0px; position: absolute; top: 0px; width: 105px; " /></a>
-            </div>
-          </div>
-          
-
-
-          <div id="id12" style="height: 131px; left: 13px; position: absolute; top: 940px; width: 117px; z-index: 1; " class="style_SkipStroke shape-with-text stroke_12">
-            <div class="text-content graphic_textbox_layout_style_default_External_115_129" style="padding: 1px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <p style="padding-top: 0pt; " class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p style="padding-bottom: 0pt; " class="Body"><a onclick="window.open(this.href); return false;" title="https://scholar.google.com/scholar?q=NSF+grants+1217515+and+1217676+&amp;btnG=&amp;hl=en&amp;as_sdt=0,10&amp;search_plus_one=form" href="https://scholar.google.com/scholar?q=NSF+grants+1217515+and+1217676+&amp;btnG=&amp;hl=en&amp;as_sdt=0%2C10&amp;search_plus_one=form" onkeypress="window.open(this.href); return false;">Activity using Pattern Theory</a></p>
-              </div>
-            </div>
-          </div>
-          
-
-
-          <div style="height: 75px; width: 110px;  height: 75px; left: 17px; position: absolute; top: 946px; width: 110px; z-index: 1; " class="tinyText stroke_3 shadow_10">
-            <div style="position: relative; width: 110px; ">
-              <img src="About_Me_files/shapeimage_12.png" alt="" style="height: 75px; left: 0px; margin-left: 1px; position: absolute; top: 0px; width: 108px; " />
-            </div>
-          </div>
-          
-
-
-          <div id="id13" style="height: 133px; left: 150px; position: absolute; top: 938px; width: 118px; z-index: 1; " class="style_SkipStroke shape-with-text stroke_13">
-            <div class="text-content graphic_textbox_layout_style_default_External_116_131" style="padding: 1px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <p style="padding-top: 0pt; " class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body">Pattern<br /></p>
-                <p class="Body">Si<br /></p>
-                <p style="padding-bottom: 0pt; " class="Body"><a onclick="window.open(this.href); return false;" title="https://scholar.google.com/scholar?as_q=gait&amp;as_epq=&amp;as_oq=&amp;as_eq=&amp;as_occt=title&amp;as_sauthors=sudeep+sarkar&amp;as_publication=&amp;as_ylo=&amp;as_yhi=&amp;btnG=&amp;hl=en&amp;as_sdt=0,10&amp;search_plus_one=form" href="https://scholar.google.com/scholar?as_q=gait&amp;as_epq=&amp;as_oq=&amp;as_eq=&amp;as_occt=title&amp;as_sauthors=sudeep+sarkar&amp;as_publication=&amp;as_ylo=&amp;as_yhi=&amp;btnG=&amp;hl=en&amp;as_sdt=0%2C10&amp;search_plus_one=form" onkeypress="window.open(this.href); return false;">Gait Analysis Recognition</a></p>
-              </div>
-            </div>
-          </div>
-          
-
-
-          <div style="height: 83px; width: 110px;  height: 83px; left: 153px; position: absolute; top: 939px; width: 110px; z-index: 1; " class="tinyText stroke_3 shadow_11">
-            <div style="position: relative; width: 110px; ">
-              <img src="About_Me_files/shapeimage_13.png" alt="" style="height: 83px; left: 0px; position: absolute; top: 0px; width: 110px; " />
-            </div>
-          </div>
-          
-
-
-          <div id="id14" style="height: 135px; left: 294px; position: absolute; top: 936px; width: 117px; z-index: 1; " class="style_SkipStroke shape-with-text stroke_14">
-            <div class="text-content graphic_textbox_layout_style_default_External_115_133" style="padding: 1px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <p style="padding-top: 0pt; " class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body">Pattern<br /></p>
-                <p class="Body">Si<br /></p>
-                <p style="padding-bottom: 0pt; " class="Body"><a onclick="window.open(this.href); return false;" title="http://marathon.cse.usf.edu/EMT/Project_Page.html" href="http://marathon.cse.usf.edu/EMT/Project_Page.html" onkeypress="window.open(this.href); return false;">Energy Minimization</a></p>
-              </div>
-            </div>
-          </div>
-          
-
-
-          <div style="height: 83px; width: 110px;  height: 83px; left: 297px; position: absolute; top: 939px; width: 110px; z-index: 1; " class="tinyText stroke_3 shadow_12">
-            <div style="position: relative; width: 110px; ">
-              <img src="About_Me_files/shapeimage_14.png" alt="" style="height: 83px; left: 0px; position: absolute; top: 0px; width: 110px; " />
-            </div>
-          </div>
-          
-
-
-          <div id="id15" style="height: 135px; left: 432px; position: absolute; top: 937px; width: 117px; z-index: 1; " class="style_SkipStroke shape-with-text stroke_15">
-            <div class="text-content graphic_textbox_layout_style_default_External_115_133" style="padding: 1px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <p style="padding-top: 0pt; " class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body">Pattern<br /></p>
-                <p class="Body">Si<br /></p>
-                <p style="padding-bottom: 0pt; " class="Body"><a onclick="window.open(this.href); return false;" title="http://marathon.csee.usf.edu/ASL/index.htm" href="http://marathon.csee.usf.edu/ASL/index.htm" onkeypress="window.open(this.href); return false;">Sign Language Recognition</a></p>
-              </div>
-            </div>
-          </div>
-          
-
-
-          <div style="height: 83px; width: 110px;  height: 83px; left: 435px; position: absolute; top: 939px; width: 110px; z-index: 1; " class="tinyText stroke_3 shadow_13">
-            <div style="position: relative; width: 110px; ">
-              <img src="About_Me_files/shapeimage_15.png" alt="" style="height: 83px; left: 0px; position: absolute; top: 0px; width: 110px; " />
-            </div>
-          </div>
-          
-
-
-          <div id="id16" style="height: 136px; left: 577px; position: absolute; top: 937px; width: 118px; z-index: 1; " class="style_SkipStroke shape-with-text stroke_16">
-            <div class="text-content graphic_textbox_layout_style_default_External_116_134" style="padding: 1px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <p style="padding-top: 0pt; " class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body">Pattern<br /></p>
-                <p class="Body"><br /></p>
-                <p style="padding-bottom: 0pt; " class="Body"><a onclick="window.open(this.href); return false;" title="http://www.cse.usf.edu/~sarkar/BLOGS/Epipolar_Matching/BLOGS.html" href="http://www.cse.usf.edu/~sarkar/BLOGS/Epipolar_Matching/BLOGS.html" onkeypress="window.open(this.href); return false;">Wide Baseline Matching</a></p>
-              </div>
-            </div>
-          </div>
-          
-
-
-          <div style="height: 83px; width: 110px;  height: 83px; left: 581px; position: absolute; top: 940px; width: 110px; z-index: 1; " class="tinyText stroke_3 shadow_14">
-            <div style="position: relative; width: 110px; ">
-              <img src="About_Me_files/shapeimage_16.png" alt="" style="height: 83px; left: 0px; position: absolute; top: 0px; width: 110px; " />
-            </div>
-          </div>
-          
-
-
-          <div id="id17" style="height: 134px; left: 13px; position: absolute; top: 1312px; width: 115px; z-index: 1; " class="style_SkipStroke shape-with-text stroke_17">
-            <div class="text-content graphic_textbox_layout_style_default_External_113_132" style="padding: 1px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <p style="padding-top: 0pt; " class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p style="padding-bottom: 0pt; " class="Body"><a onclick="window.open(this.href); return false;" title="http://marathon.csee.usf.edu/~sarkar/ds_ip.html" href="http://marathon.csee.usf.edu/~sarkar/ds_ip.html" onkeypress="window.open(this.href); return false;">Teaching Innovations</a></p>
-              </div>
-            </div>
-          </div>
-          
-
-
-          <div style="height: 83px; width: 110px;  height: 83px; left: 17px; position: absolute; top: 1314px; width: 110px; z-index: 1; " class="tinyText stroke_3 shadow_15">
-            <div style="position: relative; width: 110px; ">
-              <img src="About_Me_files/shapeimage_17.png" alt="" style="height: 83px; left: 0px; position: absolute; top: 0px; width: 110px; " />
-            </div>
-          </div>
-          
-
-
-          <div id="id18" style="height: 35px; left: 8px; position: absolute; top: 1623px; width: 691px; z-index: 1; " class="style_SkipStroke_1 shape-with-text">
-            <div class="text-content graphic_textbox_layout_style_default_External_691_35" style="padding: 0px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <p style="padding-bottom: 0pt; padding-top: 0pt; " class="paragraph_style_1">DATA and CODE</p>
-              </div>
-            </div>
-          </div>
-          
-
-
-          <div id="id19" style="height: 133px; left: 12px; position: absolute; top: 1659px; width: 118px; z-index: 1; " class="style_SkipStroke shape-with-text stroke_18">
-            <div class="text-content graphic_textbox_layout_style_default_External_116_131" style="padding: 1px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <p style="padding-top: 0pt; " class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body">HU<br /></p>
-                <p style="padding-bottom: 0pt; " class="Body"><a onclick="window.open(this.href); return false;" title="http://www.cse.usf.edu/~sarkar/SudeepSarkar/Gait_Data.html" href="http://www.cse.usf.edu/~sarkar/SudeepSarkar/Gait_Data.html" onkeypress="window.open(this.href); return false;">HumanID Gait Challenge</a></p>
-              </div>
-            </div>
-          </div>
-          
-
-
-          <div style="height: 81px; width: 110px;  height: 81px; left: 16px; position: absolute; top: 1662px; width: 110px; z-index: 1; " class="tinyText stroke_3 shadow_16">
-            <div style="position: relative; width: 110px; ">
-              <img src="About_Me_files/shapeimage_18.png" alt="" style="height: 81px; left: 0px; position: absolute; top: 0px; width: 110px; " />
-            </div>
-          </div>
-          
-
-
-          <div id="id20" style="height: 135px; left: 149px; position: absolute; top: 1658px; width: 116px; z-index: 1; " class="style_SkipStroke shape-with-text stroke_19">
-            <div class="text-content graphic_textbox_layout_style_default_External_114_133" style="padding: 1px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <p style="padding-top: 0pt; " class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p style="padding-bottom: 0pt; " class="Body"><a onclick="window.open(this.href); return false;" title="http://www.cse.usf.edu/~sarkar/SudeepSarkar/3D_Face_Data.html" href="http://www.cse.usf.edu/~sarkar/SudeepSarkar/3D_Face_Data.html" onkeypress="window.open(this.href); return false;">3D Morphable Face</a></p>
-              </div>
-            </div>
-          </div>
-          
-
-
-          <div style="height: 83px; width: 110px;  height: 83px; left: 153px; position: absolute; top: 1661px; width: 110px; z-index: 1; " class="tinyText stroke_3 shadow_17">
-            <div style="position: relative; width: 110px; ">
-              <img src="About_Me_files/shapeimage_19.png" alt="" style="height: 83px; left: 0px; position: absolute; top: 0px; width: 110px; " />
-            </div>
-          </div>
-          
-
-
-          <div id="id21" style="height: 134px; left: 576px; position: absolute; top: 1805px; width: 118px; z-index: 1; " class="style_SkipStroke shape-with-text stroke_20">
-            <div class="text-content graphic_textbox_layout_style_default_External_116_132" style="padding: 1px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <p style="padding-top: 0pt; " class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p style="padding-bottom: 0pt; " class="Body"><a onclick="window.open(this.href); return false;" title="http://figment.csee.usf.edu/PO/EmpEval/" href="http://figment.csee.usf.edu/PO/EmpEval/" onkeypress="window.open(this.href); return false;">Graph Cut Evaluation</a></p>
-              </div>
-            </div>
-          </div>
-          
-
-
-          <div style="height: 83px; width: 110px;  height: 83px; left: 580px; position: absolute; top: 1807px; width: 110px; z-index: 1; " class="tinyText stroke_3 shadow_18">
-            <div style="position: relative; width: 110px; ">
-              <img src="About_Me_files/shapeimage_20.png" alt="" style="height: 83px; left: 0px; position: absolute; top: 0px; width: 110px; " />
-            </div>
-          </div>
-          
-
-
-          <div id="id22" style="height: 134px; left: 288px; position: absolute; top: 1805px; width: 118px; z-index: 1; " class="style_SkipStroke shape-with-text stroke_21">
-            <div class="text-content graphic_textbox_layout_style_default_External_116_132" style="padding: 1px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <p style="padding-top: 0pt; " class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p style="padding-bottom: 0pt; " class="Body"><a onclick="window.open(this.href); return false;" title="http://marathon.csee.usf.edu/edge/edge_detection.html" href="http://marathon.csee.usf.edu/edge/edge_detection.html" onkeypress="window.open(this.href); return false;">Edge Detector Evaluation</a></p>
-              </div>
-            </div>
-          </div>
-          
-
-
-          <div style="height: 83px; width: 110px;  height: 83px; left: 292px; position: absolute; top: 1807px; width: 110px; z-index: 1; " class="tinyText stroke_3 shadow_19">
-            <div style="position: relative; width: 110px; ">
-              <img src="About_Me_files/shapeimage_21.png" alt="" style="height: 83px; left: 0px; position: absolute; top: 0px; width: 110px; " />
-            </div>
-          </div>
-          
-
-
-          <div id="id23" style="height: 131px; left: 577px; position: absolute; top: 1662px; width: 117px; z-index: 1; " class="style_SkipStroke shape-with-text stroke_22">
-            <div class="text-content graphic_textbox_layout_style_default_External_115_129" style="padding: 1px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <p style="padding-top: 0pt; " class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p style="padding-bottom: 0pt; " class="Body"><a onclick="window.open(this.href); return false;" title="http://figment.csee.usf.edu/~sarkar/PO_software.html" href="http://figment.csee.usf.edu/~sarkar/PO_software.html" onkeypress="window.open(this.href); return false;">Grouping using Bayesian n/w</a></p>
-              </div>
-            </div>
-          </div>
-          
-
-
-          <div style="height: 74px; width: 83px;  height: 74px; left: 594px; position: absolute; top: 1664px; width: 83px; z-index: 1; " class="tinyText stroke_3 shadow_20">
-            <div style="position: relative; width: 83px; ">
-              <img src="About_Me_files/shapeimage_22.png" alt="" style="height: 73px; left: 0px; margin-left: 1px; position: absolute; top: 0px; width: 82px; " />
-            </div>
-          </div>
-          
-
-
-          <div id="id24" style="height: 136px; left: 12px; position: absolute; top: 1804px; width: 119px; z-index: 1; " class="style_SkipStroke shape-with-text stroke_23">
-            <div class="text-content graphic_textbox_layout_style_default_External_117_134" style="padding: 1px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <p style="padding-top: 0pt; " class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p style="padding-bottom: 0pt; " class="Body"><a onclick="window.open(this.href); return false;" title="http://marathon.csee.usf.edu/ASL/Alan ASL webpage/CVAG/fraghmm.htm" href="http://marathon.csee.usf.edu/ASL/Alan%20ASL%20webpage/CVAG/fraghmm.htm" onkeypress="window.open(this.href); return false;">Fragment HMM Coupled Seg</a></p>
-              </div>
-            </div>
-          </div>
-          
-
-
-          <div style="height: 83px; width: 110px;  height: 83px; left: 19px; position: absolute; top: 1808px; width: 110px; z-index: 1; " class="tinyText stroke_3 shadow_21">
-            <div style="position: relative; width: 110px; ">
-              <img src="About_Me_files/shapeimage_23.png" alt="" style="height: 83px; left: 0px; position: absolute; top: 0px; width: 110px; " />
-            </div>
-          </div>
-          
-
-
-          <div id="id25" style="height: 135px; left: 149px; position: absolute; top: 1312px; width: 119px; z-index: 1; " class="style_SkipStroke shape-with-text stroke_24">
-            <div class="text-content graphic_textbox_layout_style_default_External_117_133" style="padding: 1px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <p style="padding-top: 0pt; " class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p style="padding-bottom: 0pt; " class="Body"><a onclick="window.open(this.href); return false;" title="http://marathon.csee.usf.edu/~sarkar/DataStructures/" href="http://marathon.csee.usf.edu/~sarkar/DataStructures/" onkeypress="window.open(this.href); return false;">Introduction to Data Structures</a></p>
-              </div>
-            </div>
-          </div>
-          
-
-
-          <div style="height: 83px; width: 110px;  height: 83px; left: 153px; position: absolute; top: 1315px; width: 110px; z-index: 1; " class="tinyText stroke_3 shadow_22">
-            <div style="position: relative; width: 110px; ">
-              <img src="About_Me_files/shapeimage_24.png" alt="" style="height: 83px; left: 0px; position: absolute; top: 0px; width: 110px; " />
-            </div>
-          </div>
-          
-
-
-          <div id="id26" style="height: 136px; left: 292px; position: absolute; top: 1311px; width: 117px; z-index: 1; " class="style_SkipStroke shape-with-text stroke_25">
-            <div class="text-content graphic_textbox_layout_style_default_External_115_134" style="padding: 1px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <p style="padding-top: 0pt; " class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p style="padding-bottom: 0pt; " class="Body"><a onclick="window.open(this.href); return false;" title="http://marathon.csee.usf.edu/~sarkar/ComputerVision/" href="http://marathon.csee.usf.edu/~sarkar/ComputerVision/" onkeypress="window.open(this.href); return false;">Computer Vision</a></p>
-              </div>
-            </div>
-          </div>
-          
-
-
-          <div style="height: 83px; width: 110px;  height: 83px; left: 296px; position: absolute; top: 1315px; width: 110px; z-index: 1; " class="tinyText stroke_3 shadow_23">
-            <div style="position: relative; width: 110px; ">
-              <img src="About_Me_files/shapeimage_25.png" alt="" style="height: 83px; left: 0px; position: absolute; top: 0px; width: 110px; " />
-            </div>
-          </div>
-          
-
-
-          <div id="id27" style="height: 136px; left: 431px; position: absolute; top: 1311px; width: 119px; z-index: 1; " class="style_SkipStroke shape-with-text stroke_26">
-            <div class="text-content graphic_textbox_layout_style_default_External_117_134" style="padding: 1px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <p style="padding-top: 0pt; " class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p style="padding-bottom: 0pt; " class="Body"><a onclick="window.open(this.href); return false;" title="http://figment.csee.usf.edu/~sarkar/PatternRecognition/index.htm" href="http://figment.csee.usf.edu/~sarkar/PatternRecognition/index.htm" onkeypress="window.open(this.href); return false;">Pattern Recognition</a></p>
-              </div>
-            </div>
-          </div>
-          
-
-
-          <div style="height: 83px; width: 110px;  height: 83px; left: 435px; position: absolute; top: 1315px; width: 110px; z-index: 1; " class="tinyText stroke_3 shadow_24">
-            <div style="position: relative; width: 110px; ">
-              <img src="About_Me_files/shapeimage_26.png" alt="" style="height: 83px; left: 0px; position: absolute; top: 0px; width: 110px; " />
-            </div>
-          </div>
-          
-
-
-          <div id="id28" style="height: 136px; left: 577px; position: absolute; top: 1311px; width: 118px; z-index: 1; " class="style_SkipStroke shape-with-text stroke_27">
-            <div class="text-content graphic_textbox_layout_style_default_External_116_134" style="padding: 1px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <p style="padding-top: 0pt; " class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p style="padding-bottom: 0pt; " class="Body"><a onclick="window.open(this.href); return false;" title="http://figment.csee.usf.edu/~sarkar/biometrics.html" href="http://figment.csee.usf.edu/~sarkar/biometrics.html" onkeypress="window.open(this.href); return false;">Image-based Biometrics</a></p>
-              </div>
-            </div>
-          </div>
-          
-
-
-          <div style="height: 83px; width: 110px;  height: 83px; left: 581px; position: absolute; top: 1315px; width: 110px; z-index: 1; " class="tinyText stroke_3 shadow_25">
-            <div style="position: relative; width: 110px; ">
-              <img src="About_Me_files/shapeimage_27.png" alt="" style="height: 83px; left: 0px; position: absolute; top: 0px; width: 110px; " />
-            </div>
-          </div>
-          
-
-
-          <div id="id29" style="height: 137px; left: 13px; position: absolute; top: 1453px; width: 114px; z-index: 1; " class="style_SkipStroke shape-with-text stroke_28">
-            <div class="text-content graphic_textbox_layout_style_default_External_112_135" style="padding: 1px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <p style="padding-top: 0pt; " class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p style="padding-bottom: 0pt; " class="Body"><a onclick="window.open(this.href); return false;" title="http://figment.csee.usf.edu/~sarkar/Probability/" href="http://figment.csee.usf.edu/~sarkar/Probability/" onkeypress="window.open(this.href); return false;">Probabilistic Models</a></p>
-              </div>
-            </div>
-          </div>
-          
-
-
-          <div style="height: 83px; width: 110px;  height: 83px; left: 16px; position: absolute; top: 1455px; width: 110px; z-index: 1; " class="tinyText stroke_3 shadow_26">
-            <div style="position: relative; width: 110px; ">
-              <img src="About_Me_files/shapeimage_28.png" alt="" style="height: 83px; left: 0px; position: absolute; top: 0px; width: 110px; " />
-            </div>
-          </div>
-          
-
-
-          <div id="id30" style="height: 138px; left: 150px; position: absolute; top: 1454px; width: 117px; z-index: 1; " class="style_SkipStroke shape-with-text stroke_29">
-            <div class="text-content graphic_textbox_layout_style_default_External_115_136" style="padding: 1px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <p style="padding-top: 0pt; " class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p style="padding-bottom: 0pt; " class="Body"><a onclick="window.open(this.href); return false;" title="http://figment.csee.usf.edu/~sarkar/Ethics/" href="http://figment.csee.usf.edu/~sarkar/Ethics/" onkeypress="window.open(this.href); return false;">Ethics in Computing</a></p>
-              </div>
-            </div>
-          </div>
-          
-
-
-          <div style="height: 83px; width: 110px;  height: 83px; left: 153px; position: absolute; top: 1457px; width: 110px; z-index: 1; " class="tinyText stroke_3 shadow_27">
-            <div style="position: relative; width: 110px; ">
-              <img src="About_Me_files/shapeimage_29.png" alt="" style="height: 83px; left: 0px; position: absolute; top: 0px; width: 110px; " />
-            </div>
-          </div>
-          
-
-
-          <div id="id31" style="height: 133px; left: 287px; position: absolute; top: 1457px; width: 119px; z-index: 1; " class="style_SkipStroke shape-with-text stroke_30">
-            <div class="text-content graphic_textbox_layout_style_default_External_117_131" style="padding: 1px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <p style="padding-top: 0pt; " class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p style="padding-bottom: 0pt; " class="Body"><a onclick="window.open(this.href); return false;" title="http://marathon.csee.usf.edu/~sarkar/cap5400.html" href="http://marathon.csee.usf.edu/~sarkar/cap5400.html" onkeypress="window.open(this.href); return false;">Image Processing</a></p>
-              </div>
-            </div>
-          </div>
-          
-
-
-          <div style="height: 83px; width: 110px;  height: 83px; left: 288px; position: absolute; top: 1459px; width: 110px; z-index: 1; " class="tinyText stroke_3 shadow_28">
-            <div style="position: relative; width: 110px; ">
-              <img src="About_Me_files/shapeimage_30.png" alt="" style="height: 83px; left: 0px; position: absolute; top: 0px; width: 110px; " />
-            </div>
-          </div>
-          
-
-
-          <div id="id32" style="height: 134px; left: 13px; position: absolute; top: 1091px; width: 120px; z-index: 1; " class="style_SkipStroke shape-with-text stroke_31">
-            <div class="text-content graphic_textbox_layout_style_default_External_118_132" style="padding: 1px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <p style="padding-top: 0pt; " class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p style="padding-bottom: 0pt; " class="Body"><a onclick="window.open(this.href); return false;" title="https://scholar.google.com/scholar?q=burn+scar+author:sudeep+author:sarkar&amp;btnG=&amp;hl=en&amp;as_sdt=0,10&amp;search_plus_one=form" href="https://scholar.google.com/scholar?q=burn+scar+author%3Asudeep+author%3Asarkar&amp;btnG=&amp;hl=en&amp;as_sdt=0%2C10&amp;search_plus_one=form" onkeypress="window.open(this.href); return false;">Burn Scar Analysis</a></p>
-              </div>
-            </div>
-          </div>
-          
-
-
-          <div style="height: 83px; width: 110px;  height: 83px; left: 17px; position: absolute; top: 1093px; width: 110px; z-index: 1; " class="tinyText stroke_3 shadow_29">
-            <div style="position: relative; width: 110px; ">
-              <a href="About_Me_files/droppedImage.pdf" title="About_Me_files/droppedImage.pdf"><img src="About_Me_files/shapeimage_31.png" alt="" style="height: 83px; left: 0px; position: absolute; top: 0px; width: 110px; " /></a>
-            </div>
-          </div>
-          
-
-
-          <div id="id33" style="height: 136px; left: 150px; position: absolute; top: 1090px; width: 118px; z-index: 1; " class="style_SkipStroke shape-with-text stroke_32">
-            <div class="text-content graphic_textbox_layout_style_default_External_116_134" style="padding: 1px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <p style="padding-top: 0pt; " class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body">Pattern<br /></p>
-                <p class="Body">Si<br /></p>
-                <p style="padding-bottom: 0pt; " class="Body"><a onclick="window.open(this.href); return false;" title="https://scholar.google.com/scholar?start=0&amp;q=elasticity+author:sudeep+author:sarkar&amp;hl=en&amp;as_sdt=0,10" href="https://scholar.google.com/scholar?start=0&amp;q=elasticity+author:sudeep+author:sarkar&amp;hl=en&amp;as_sdt=0,10" onkeypress="window.open(this.href); return false;">Skin Elasticity Estimation</a></p>
-              </div>
-            </div>
-          </div>
-          
-
-
-          <div style="height: 83px; width: 110px;  height: 83px; left: 153px; position: absolute; top: 1094px; width: 110px; z-index: 1; " class="tinyText stroke_3 shadow_30">
-            <div style="position: relative; width: 110px; ">
-              <a href="About_Me_files/droppedImage_1.pdf" title="About_Me_files/droppedImage_1.pdf"><img src="About_Me_files/shapeimage_32.png" alt="" style="height: 83px; left: 0px; position: absolute; top: 0px; width: 110px; " /></a>
-            </div>
-          </div>
-          
-
-
-          <div id="id34" style="height: 136px; left: 294px; position: absolute; top: 1090px; width: 114px; z-index: 1; " class="style_SkipStroke shape-with-text stroke_33">
-            <div class="text-content graphic_textbox_layout_style_default_External_112_134" style="padding: 1px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <p style="padding-top: 0pt; " class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body">Pattern<br /></p>
-                <p class="Body">Si<br /></p>
-                <p style="padding-bottom: 0pt; " class="Body"><a onclick="window.open(this.href); return false;" title="https://scholar.google.com/scholar?q=perceptual+organization+author:sudeep+author:sarkar&amp;btnG=&amp;hl=en&amp;as_sdt=0,10&amp;search_plus_one=form" href="https://scholar.google.com/scholar?q=perceptual+organization+author%3Asudeep+author%3Asarkar&amp;btnG=&amp;hl=en&amp;as_sdt=0%2C10&amp;search_plus_one=form" onkeypress="window.open(this.href); return false;">Perceptual Organization</a></p>
-              </div>
-            </div>
-          </div>
-          
-
-
-          <div style="height: 83px; width: 110px;  height: 83px; left: 297px; position: absolute; top: 1094px; width: 110px; z-index: 1; " class="tinyText stroke_3 shadow_31">
-            <div style="position: relative; width: 110px; ">
-              <img src="About_Me_files/shapeimage_33.png" alt="" style="height: 83px; left: 0px; position: absolute; top: 0px; width: 110px; " />
-            </div>
-          </div>
-          
-
-
-          <div id="id35" style="height: 134px; left: 433px; position: absolute; top: 1092px; width: 118px; z-index: 1; " class="style_SkipStroke shape-with-text stroke_34">
-            <div class="text-content graphic_textbox_layout_style_default_External_116_132" style="padding: 1px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <p style="padding-top: 0pt; " class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body">Pattern<br /></p>
-                <p class="Body">Si<br /></p>
-                <p style="padding-bottom: 0pt; " class="Body"><a onclick="window.open(this.href); return false;" title="https://scholar.google.com/scholar?q=gunaratne+author:sudeep+author:sarkar&amp;btnG=&amp;hl=en&amp;as_sdt=0,10&amp;search_plus_one=form" href="https://scholar.google.com/scholar?q=gunaratne+author%3Asudeep+author%3Asarkar&amp;btnG=&amp;hl=en&amp;as_sdt=0%2C10&amp;search_plus_one=form" onkeypress="window.open(this.href); return false;">Roads and Navigation</a></p>
-              </div>
-            </div>
-          </div>
-          
-
-
-          <div style="height: 83px; width: 110px;  height: 83px; left: 436px; position: absolute; top: 1094px; width: 110px; z-index: 1; " class="tinyText stroke_3 shadow_32">
-            <div style="position: relative; width: 110px; ">
-              <img src="About_Me_files/shapeimage_34.png" alt="" style="height: 83px; left: 0px; position: absolute; top: 0px; width: 110px; " />
-            </div>
-          </div>
-          
-
-
-          <div id="id36" style="height: 136px; left: 432px; position: absolute; top: 1454px; width: 119px; z-index: 1; " class="style_SkipStroke shape-with-text stroke_35">
-            <div class="text-content graphic_textbox_layout_style_default_External_117_134" style="padding: 1px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <p style="padding-top: 0pt; " class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p style="padding-bottom: 0pt; " class="Body"><a onclick="window.open(this.href); return false;" title="http://marathon.csee.usf.edu/~sarkar/medical_imaging.html" href="http://marathon.csee.usf.edu/~sarkar/medical_imaging.html" onkeypress="window.open(this.href); return false;">Medical Imaging </a></p>
-              </div>
-            </div>
-          </div>
-          
-
-
-          <div style="height: 83px; width: 110px;  height: 83px; left: 436px; position: absolute; top: 1456px; width: 110px; z-index: 1; " class="tinyText stroke_3 shadow_33">
-            <div style="position: relative; width: 110px; ">
-              <img src="About_Me_files/shapeimage_35.png" alt="" style="height: 83px; left: 0px; position: absolute; top: 0px; width: 110px; " />
-            </div>
-          </div>
-          
-
-
-          <div id="id37" style="height: 134px; left: 577px; position: absolute; top: 1456px; width: 118px; z-index: 1; " class="style_SkipStroke shape-with-text stroke_36">
-            <div class="text-content graphic_textbox_layout_style_default_External_116_132" style="padding: 1px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <p style="padding-top: 0pt; " class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p style="padding-bottom: 0pt; " class="Body"><a onclick="window.open(this.href); return false;" title="http://www.cse.usf.edu/~sarkar/cGeom/" href="http://www.cse.usf.edu/~sarkar/cGeom/" onkeypress="window.open(this.href); return false;">Computational Geometry</a></p>
-              </div>
-            </div>
-          </div>
-          
-
-
-          <div style="height: 83px; width: 110px;  height: 83px; left: 581px; position: absolute; top: 1458px; width: 110px; z-index: 1; " class="tinyText stroke_3 shadow_34">
-            <div style="position: relative; width: 110px; ">
-              <img src="About_Me_files/shapeimage_36.png" alt="" style="height: 83px; left: 0px; position: absolute; top: 0px; width: 110px; " />
-            </div>
-          </div>
-          
-
-
-          <div id="id38" style="height: 133px; left: 435px; position: absolute; top: 746px; width: 111px; z-index: 1; " class="style_SkipStroke shape-with-text stroke_37">
-            <div class="text-content graphic_textbox_layout_style_default_External_109_131" style="padding: 1px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <p style="padding-top: 0pt; " class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p style="padding-bottom: 0pt; " class="Body"><a onclick="window.open(this.href); return false;" title="http://www.thefc2.org/research/grant.aspx" href="http://www.thefc2.org/research/grant.aspx" onkeypress="window.open(this.href); return false;">Seed Grant Manager</a></p>
-              </div>
-            </div>
-          </div>
-          
-
-
-          <div style="height: 83px; width: 106px;  height: 83px; left: 438px; position: absolute; top: 748px; width: 106px; z-index: 1; " class="tinyText stroke_3 shadow_35">
-            <div style="position: relative; width: 106px; ">
-              <a href="http://www.thefc2.org/research/grant.aspx" title="http://www.thefc2.org/research/grant.aspx" onclick="window.open(this.href); return false;" onkeypress="window.open(this.href); return false;"><img src="About_Me_files/shapeimage_37.png" alt="" style="height: 37px; left: 0px; margin-top: 26px; position: absolute; top: 0px; width: 106px; " /></a>
-            </div>
-          </div>
-          
-
-
-          <div id="id39" style="height: 135px; left: 577px; position: absolute; top: 745px; width: 119px; z-index: 1; " class="style_SkipStroke shape-with-text stroke_38">
-            <div class="text-content graphic_textbox_layout_style_default_External_117_133" style="padding: 1px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <p style="padding-top: 0pt; " class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p style="padding-bottom: 0pt; " class="Body"><a title="http://www.usf.edu/research-innovation/researchers/huron-report.aspx" href="http://www.usf.edu/research-innovation/researchers/huron-report.aspx">Strategic Planning</a></p>
-              </div>
-            </div>
-          </div>
-          
-
-
-          <div style="height: 83px; width: 110px;  height: 83px; left: 581px; position: absolute; top: 747px; width: 110px; z-index: 1; " class="tinyText stroke_3 shadow_36">
-            <div style="position: relative; width: 110px; ">
-              <a href="http://www.usf.edu/research-innovation/researchers/huron-report.aspx" title="http://www.usf.edu/research-innovation/researchers/huron-report.aspx"><img src="About_Me_files/shapeimage_38.png" alt="" style="height: 83px; left: 0px; position: absolute; top: 0px; width: 110px; " /></a>
-            </div>
-          </div>
-          
-
-
-          <div id="id40" style="height: 35px; left: 5px; position: absolute; top: 1961px; width: 691px; z-index: 1; " class="style_SkipStroke_1 shape-with-text">
-            <div class="text-content graphic_textbox_layout_style_default_External_691_35" style="padding: 0px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <p style="padding-bottom: 0pt; padding-top: 0pt; " class="paragraph_style_1">PICTURES</p>
-              </div>
-            </div>
-          </div>
-          
-
-
-          <div id="id41" style="height: 35px; left: 1px; position: absolute; top: 2367px; width: 691px; z-index: 1; " class="style_SkipStroke_1 shape-with-text">
-            <div class="text-content graphic_textbox_layout_style_default_External_691_35" style="padding: 0px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <div style="padding-bottom: 0pt; padding-top: 0pt; " class="paragraph_style_1"><br /></div>
-              </div>
-            </div>
-          </div>
-          
-
-
-          <div id="id42" style="height: 35px; left: 6px; position: absolute; top: 898px; width: 691px; z-index: 1; " class="style_SkipStroke_1 shape-with-text">
-            <div class="text-content graphic_textbox_layout_style_default_External_691_35" style="padding: 0px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <p style="padding-bottom: 0pt; padding-top: 0pt; " class="paragraph_style_1">RESEARCH</p>
-              </div>
-            </div>
-          </div>
-          
-
-
-          <div style="height: 130px; width: 195px;  height: 130px; left: 487px; position: absolute; top: 2009px; width: 195px; z-index: 1; " class="tinyText style_SkipStroke_2 stroke_3 shadow_37">
-            <img src="About_Me_files/IMG_6208.jpg" alt="" style="border: none; height: 130px; width: 195px; " />
-          </div>
-          
-
-
-          <div style="height: 134px; width: 201px;  height: 134px; left: 15px; position: absolute; top: 2155px; width: 201px; z-index: 1; " class="tinyText style_SkipStroke_2 stroke_3 shadow_38">
-            <img src="About_Me_files/IMG_6182.jpg" alt="" style="border: none; height: 135px; width: 201px; " />
-          </div>
-          
-
-
-          <div style="height: 138px; width: 207px;  height: 138px; left: 481px; position: absolute; top: 2153px; width: 207px; z-index: 1; " class="tinyText style_SkipStroke_2 stroke_3 shadow_39">
-            <img src="About_Me_files/IMG_0825.jpg" alt="" style="border: none; height: 138px; width: 207px; " />
-          </div>
-          
-
-
-          <div style="height: 139px; width: 209px;  height: 139px; left: 246px; position: absolute; top: 2152px; width: 209px; z-index: 1; " class="tinyText style_SkipStroke_2 stroke_3 shadow_40">
-            <img src="About_Me_files/IMG_0758.jpg" alt="" style="border: none; height: 140px; width: 209px; " />
-          </div>
-          
-
-
-          <div id="id43" style="height: 35px; left: 5px; position: absolute; top: 699px; width: 691px; z-index: 1; " class="style_SkipStroke_1 shape-with-text">
-            <div class="text-content graphic_textbox_layout_style_default_External_691_35" style="padding: 0px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <p style="padding-bottom: 0pt; padding-top: 0pt; " class="paragraph_style_1">ADMINISTRATIVE</p>
-              </div>
-            </div>
-          </div>
-          
-
-
-          <div id="id44" style="height: 35px; left: 5px; position: absolute; top: 1272px; width: 691px; z-index: 1; " class="style_SkipStroke_1 shape-with-text">
-            <div class="text-content graphic_textbox_layout_style_default_External_691_35" style="padding: 0px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <p style="padding-bottom: 0pt; padding-top: 0pt; " class="paragraph_style_1">TEACHING</p>
-              </div>
-            </div>
-          </div>
-          
-
-
-          <div id="id45" style="height: 134px; left: 577px; position: absolute; top: 1092px; width: 118px; z-index: 1; " class="style_SkipStroke shape-with-text stroke_39">
-            <div class="text-content graphic_textbox_layout_style_default_External_116_132" style="padding: 1px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <p style="padding-top: 0pt; " class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body">Pattern<br /></p>
-                <p class="Body">Si<br /></p>
-                <p style="padding-bottom: 0pt; " class="Body"><a onclick="window.open(this.href); return false;" title="https://scholar.google.com/scholar?q=quantum+author:sudeep+author:sarkar&amp;btnG=&amp;hl=en&amp;as_sdt=0,10&amp;search_plus_one=form" href="https://scholar.google.com/scholar?q=quantum+author%3Asudeep+author%3Asarkar&amp;btnG=&amp;hl=en&amp;as_sdt=0%2C10&amp;search_plus_one=form" onkeypress="window.open(this.href); return false;">Quantum Modeling</a></p>
-              </div>
-            </div>
-          </div>
-          
-
-
-          <div style="height: 79px; width: 110px;  height: 79px; left: 580px; position: absolute; top: 1094px; width: 110px; z-index: 1; " class="tinyText stroke_3 shadow_41">
-            <div style="position: relative; width: 110px; ">
-              <img src="About_Me_files/shapeimage_39.png" alt="" style="height: 79px; left: 0px; position: absolute; top: 0px; width: 110px; " />
-            </div>
-          </div>
-          
-
-
-          <div id="id46" style="height: 136px; left: 149px; position: absolute; top: 1804px; width: 119px; z-index: 1; " class="style_SkipStroke shape-with-text stroke_40">
-            <div class="text-content graphic_textbox_layout_style_default_External_117_134" style="padding: 1px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <p style="padding-top: 0pt; " class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p style="padding-bottom: 0pt; " class="Body"><a onclick="window.open(this.href); return false;" title="http://www.cse.usf.edu/~sarkar/BLOGS/Epipolar_Matching/BLOGS.html" href="http://www.cse.usf.edu/~sarkar/BLOGS/Epipolar_Matching/BLOGS.html" onkeypress="window.open(this.href); return false;">Wide-baseline Epipolar Geom</a></p>
-              </div>
-            </div>
-          </div>
-          
-
-
-          <div style="height: 83px; width: 110px;  height: 83px; left: 153px; position: absolute; top: 1808px; width: 110px; z-index: 1; " class="tinyText stroke_3 shadow_42">
-            <div style="position: relative; width: 110px; ">
-              <img src="About_Me_files/shapeimage_40.png" alt="" style="height: 83px; left: 0px; position: absolute; top: 0px; width: 110px; " />
-            </div>
-          </div>
-          
-
-
-          <div id="id47" style="height: 115px; left: 292px; position: absolute; top: 571px; width: 115px; z-index: 1; " class="style_SkipStroke shape-with-text stroke_41">
-            <div class="text-content graphic_textbox_layout_style_default_External_113_113" style="padding: 1px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <p style="padding-top: 0pt; " class="Body">]<br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p style="padding-bottom: 0pt; " class="Body"><a onclick="window.open(this.href); return false;" title="http://dblp.uni-trier.de/pers/hd/s/Sarkar:Sudeep" href="http://dblp.uni-trier.de/pers/hd/s/Sarkar:Sudeep" onkeypress="window.open(this.href); return false;">DBLP database</a></p>
-              </div>
-            </div>
-          </div>
-          
-
-
-          <div style="height: 83px; width: 110px;  height: 83px; left: 294px; position: absolute; top: 573px; width: 110px; z-index: 1; " class="tinyText stroke_3 shadow_43">
-            <div style="position: relative; width: 110px; ">
-              <img src="About_Me_files/shapeimage_41.png" alt="" style="height: 68px; left: 0px; margin-top: 15px; position: absolute; top: 0px; width: 110px; " />
-            </div>
-          </div>
-          
-
-
-          <div id="id48" style="height: 115px; left: 432px; position: absolute; top: 571px; width: 115px; z-index: 1; " class="style_SkipStroke shape-with-text stroke_42">
-            <div class="text-content graphic_textbox_layout_style_default_External_113_113" style="padding: 1px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <p style="padding-top: 0pt; " class="Body">]<br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p style="padding-bottom: 0pt; " class="Body"><a onclick="window.open(this.href); return false;" title="https://www.google.com/search?tbo=p&amp;tbm=pts&amp;hl=en&amp;q=&quot;sudeep+sarkar&quot;&amp;num=10" href="https://www.google.com/search?tbo=p&amp;tbm=pts&amp;hl=en&amp;q=%22sudeep+sarkar%22&amp;num=10" onkeypress="window.open(this.href); return false;">Patent Citation</a></p>
-              </div>
-            </div>
-          </div>
-          
-
-
-          <div style="height: 83px; width: 109px;  height: 83px; left: 435px; position: absolute; top: 573px; width: 109px; z-index: 1; " class="tinyText stroke_3 shadow_44">
-            <div style="position: relative; width: 109px; ">
-              <img src="About_Me_files/shapeimage_42.png" alt="" style="height: 83px; left: 0px; position: absolute; top: 0px; width: 109px; " />
-            </div>
-          </div>
-          
-
-
-          <div id="id49" style="height: 136px; left: 287px; position: absolute; top: 1658px; width: 119px; z-index: 1; " class="style_SkipStroke shape-with-text stroke_43">
-            <div class="text-content graphic_textbox_layout_style_default_External_117_134" style="padding: 1px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <p style="padding-top: 0pt; " class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p style="padding-bottom: 0pt; " class="Body"><a onclick="window.open(this.href); return false;" title="http://marathon.csee.usf.edu/ASL/Alan ASL webpage/CVAG/ASLRecognizer.htm" href="http://marathon.csee.usf.edu/ASL/Alan%20ASL%20webpage/CVAG/ASLRecognizer.htm" onkeypress="window.open(this.href); return false;">Enhanced Level Building</a></p>
-              </div>
-            </div>
-          </div>
-          
-
-
-          <div style="height: 83px; width: 110px;  height: 83px; left: 291px; position: absolute; top: 1662px; width: 110px; z-index: 1; " class="tinyText stroke_3 shadow_45">
-            <div style="position: relative; width: 110px; ">
-              <img src="About_Me_files/shapeimage_43.png" alt="" style="height: 83px; left: 0px; position: absolute; top: 0px; width: 110px; " />
-            </div>
-          </div>
-          
-
-
-          <div id="id50" style="height: 136px; left: 432px; position: absolute; top: 1804px; width: 119px; z-index: 1; " class="style_SkipStroke shape-with-text stroke_44">
-            <div class="text-content graphic_textbox_layout_style_default_External_117_134" style="padding: 1px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <p style="padding-top: 0pt; " class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p style="padding-bottom: 0pt; " class="Body"><a onclick="window.open(this.href); return false;" title="http://marathon.csee.usf.edu/~sarkar/vision_html/lola_code/" href="http://marathon.csee.usf.edu/~sarkar/vision_html/lola_code/" onkeypress="window.open(this.href); return false;">Edge Detector Code (OZCO)</a></p>
-              </div>
-            </div>
-          </div>
-          
-
-
-          <div style="height: 83px; width: 110px;  height: 83px; left: 436px; position: absolute; top: 1808px; width: 110px; z-index: 1; " class="tinyText stroke_3 shadow_46">
-            <div style="position: relative; width: 110px; ">
-              <img src="About_Me_files/shapeimage_44.png" alt="" style="height: 76px; left: 0px; margin-left: 10px; position: absolute; top: 0px; width: 97px; " />
-            </div>
-          </div>
-          
-
-
-          <div id="id51" style="height: 136px; left: 432px; position: absolute; top: 1658px; width: 119px; z-index: 1; " class="style_SkipStroke shape-with-text stroke_45">
-            <div class="text-content graphic_textbox_layout_style_default_External_117_134" style="padding: 1px; ">
-              <div class="graphic_textbox_layout_style_default">
-                <p style="padding-top: 0pt; " class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p class="Body"><br /></p>
-                <p style="padding-bottom: 0pt; " class="Body"><a onclick="window.open(this.href); return false;" title="http://marathon.csee.usf.edu/ASL/Alan ASL webpage/CVAG/AnnotationTool.htm" href="http://marathon.csee.usf.edu/ASL/Alan%20ASL%20webpage/CVAG/AnnotationTool.htm" onkeypress="window.open(this.href); return false;">Sign Annotation Toolbox</a></p>
-              </div>
-            </div>
-          </div>
-          
-
-
-          <div style="height: 83px; width: 110px;  height: 83px; left: 436px; position: absolute; top: 1662px; width: 110px; z-index: 1; " class="tinyText stroke_3 shadow_47">
-            <div style="position: relative; width: 110px; ">
-              <img src="About_Me_files/shapeimage_45.png" alt="" style="height: 83px; left: 0px; position: absolute; top: 0px; width: 110px; " />
-            </div>
-          </div>
-          <div style="height: 2414px; line-height: 2414px; " class="spacer"> </div>
-        </div>
-        <div style="height: 100px; margin-left: 0px; position: relative; width: 700px; z-index: 15; " id="footer_layer">
-          <div style="height: 0px; line-height: 0px; " class="bumper"> </div>
-        </div>
-      </div>
-    </div>
-  </body>
+<div class="pop" id="cite-pop" role="tooltip" hidden></div>
+
+<script>
+(function(){
+  // Portrait fallback when portrait.jpg is missing
+  var img=document.getElementById('portrait');
+  function noPortrait(){ img.hidden=true; img.nextElementSibling.hidden=false; }
+  if(img){ if(img.complete && img.naturalWidth===0) noPortrait(); else img.addEventListener('error',noPortrait); }
+
+  // Show fewer, larger poses on narrow screens
+  var g=document.querySelector('.gait');
+  function fitGait(){ if(g) g.setAttribute('viewBox', window.innerWidth<640 ? '0 0 404 106' : '0 0 808 106'); }
+  fitGait(); window.addEventListener('resize',fitGait);
+
+  // Collapse the contents box on small screens
+  var det=document.getElementById('toc-details');
+  if(det && window.matchMedia('(max-width:820px)').matches){ det.open=false; }
+
+  // Highlight the current section in the contents
+  var links={};
+  document.querySelectorAll('.toc a[href^="#"]').forEach(function(a){ links[a.getAttribute('href').slice(1)]=a; });
+  var targets=Object.keys(links).map(function(id){return document.getElementById(id);}).filter(Boolean);
+  var current=null;
+  function setCurrent(id){
+    if(id===current) return;
+    if(current && links[current]) links[current].removeAttribute('aria-current');
+    current=id; if(links[id]) links[id].setAttribute('aria-current','true');
+  }
+  function onScroll(){
+    var y=window.innerHeight*0.25, best=targets[0];
+    for(var i=0;i<targets.length;i++){
+      var el=targets[i].tagName==='SECTION'?targets[i].querySelector('h2')||targets[i]:targets[i];
+      if(el.getBoundingClientRect().top<=y) best=targets[i];
+    }
+    if(best) setCurrent(best.id);
+  }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+  document.querySelectorAll('.toc a').forEach(function(a){
+    a.addEventListener('click',function(){ if(window.matchMedia('(max-width:820px)').matches && det) det.open=false; });
+  });
+
+  // Doctoral students: show all
+  var btn=document.getElementById('show-students'), tbl=document.getElementById('phd-table');
+  if(btn&&tbl){ btn.addEventListener('click',function(){
+    var on=tbl.classList.toggle('expanded');
+    btn.setAttribute('aria-expanded',on?'true':'false');
+    btn.textContent=on?'Show recent graduates only':'Show all 25 graduates';
+  }); }
+
+  // Reference previews on hover or keyboard focus
+  var pop=document.getElementById('cite-pop'), hideT=null;
+  function show(a){
+    var n=a.getAttribute('data-ref'), li=document.getElementById('ref-'+n);
+    if(!li) return;
+    clearTimeout(hideT);
+    pop.innerHTML='<span class="pop-n">['+n+']</span>'+li.innerHTML;
+    pop.hidden=false;
+    var r=a.getBoundingClientRect(), w=pop.offsetWidth, h=pop.offsetHeight;
+    var left=Math.min(Math.max(8,r.left-w/2+r.width/2),window.innerWidth-w-8);
+    var top=r.bottom+8; if(top+h>window.innerHeight-8) top=r.top-h-8;
+    pop.style.left=left+'px'; pop.style.top=top+'px';
+    a.setAttribute('aria-describedby','cite-pop');
+  }
+  function hideSoon(a){ hideT=setTimeout(function(){ pop.hidden=true; if(a) a.removeAttribute('aria-describedby'); },180); }
+  var canHover=window.matchMedia('(hover:hover)').matches;
+  document.querySelectorAll('sup.cite a').forEach(function(a){
+    if(canHover){
+      a.addEventListener('mouseenter',function(){show(a);});
+      a.addEventListener('mouseleave',function(){hideSoon(a);});
+    }
+    a.addEventListener('focus',function(){ if(canHover) show(a); });
+    a.addEventListener('blur',function(){hideSoon(a);});
+  });
+  pop.addEventListener('mouseenter',function(){clearTimeout(hideT);});
+  pop.addEventListener('mouseleave',function(){hideSoon();});
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') pop.hidden=true; });
+  window.addEventListener('scroll',function(){ pop.hidden=true; },{passive:true});
+})();
+</script>
+</body>
 </html>
-
-
-
