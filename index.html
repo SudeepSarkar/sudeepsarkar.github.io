@@ -22,7 +22,7 @@
 :root{
   --paper:#F5F7F9; --ink:#1E2430; --muted:#5A6474; --rule:#CBD2DB; --panel:#EAEEF2;
   --link:#22567D; --visited:#5A4B86; --figure:#22567D; --figure-far:#9FB4C7; --joint:#9A7B2C;
-  --mark:#E3ECF4;
+  --mark:#E3ECF4; --seg2:#C9D8E6;
   --serif:"Alegreya","Iowan Old Style",Georgia,serif;
   --sans:"Alegreya Sans","Gill Sans","Segoe UI",system-ui,sans-serif;
   color-scheme:light;
@@ -34,13 +34,13 @@
   :root:not([data-theme="light"]){
     --paper:#13171D; --ink:#DCE1E8; --muted:#9AA4B2; --rule:#2D3541; --panel:#1B2129;
     --link:#8DB8DE; --visited:#B7A9DC; --figure:#8DB8DE; --figure-far:#41566B; --joint:#D2AF5A;
-    --mark:#22303F; color-scheme:dark;
+    --mark:#22303F; --seg2:#2E4256; color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
   --paper:#13171D; --ink:#DCE1E8; --muted:#9AA4B2; --rule:#2D3541; --panel:#1B2129;
   --link:#8DB8DE; --visited:#B7A9DC; --figure:#8DB8DE; --figure-far:#41566B; --joint:#D2AF5A;
-  --mark:#22303F; color-scheme:dark;
+  --mark:#22303F; --seg2:#2E4256; color-scheme:dark;
 }
 *,*::before,*::after{box-sizing:inherit}
 [hidden]{display:none !important}
@@ -88,6 +88,10 @@ h1{font-family:var(--serif);font-weight:400;font-size:2.8rem;line-height:1.1;let
 .gait .pose{opacity:0;animation:pose-in .45s ease-out forwards;animation-delay:calc(var(--i) * 120ms + 150ms)}
 @keyframes pose-in{to{opacity:1}}
 @media (prefers-reduced-motion:reduce){.gait .pose{opacity:1;animation:none}}
+.walker{display:block;width:100%;height:13rem}
+.walker-bar{display:flex;gap:1rem;align-items:baseline;justify-content:space-between;font-family:var(--sans);font-size:.88rem;color:var(--muted);margin-top:.3rem;min-height:1.4em}
+.walker-bar button{font:inherit;color:var(--link);background:none;border:0;padding:0;cursor:pointer;flex:none}
+.walker-bar button:hover{text-decoration:underline}
 .frieze figcaption{font-family:var(--sans);font-size:.88rem;color:var(--muted);margin-top:.35rem;max-width:36rem}
 
 .infobox{float:right;clear:right;width:18.5rem;margin:.2rem 0 1.5rem 1.75rem;background:var(--panel);border:1px solid var(--rule);font-family:var(--sans);font-size:.93rem;line-height:1.4;padding:.8rem .9rem .9rem}
@@ -173,6 +177,7 @@ footer{grid-column:2;max-width:42rem;margin-top:2.5rem;padding-top:.8rem;border-
   .infobox{float:none;width:auto;margin:0 0 1.5rem}
   .infobox figure{max-width:14rem;margin:0 auto .7rem}
   ul.links{columns:1}
+  .walker-bar{min-height:2.8em}
 }
 </style>
 </head>
@@ -244,8 +249,10 @@ footer{grid-column:2;max-width:42rem;margin-top:2.5rem;padding-top:.8rem;border-
     <p class="hatnote">This is Sarkar’s personal page. For the college he leads, see the <a href="https://www.usf.edu/ai-cybersecurity-computing/">Bellini College of Artificial Intelligence, Cybersecurity and Computing</a>.</p>
 
     <figure class="frieze">
-      <svg class="gait" viewBox="0 0 808 106" role="img" aria-labelledby="gait-cap"><line class="ground" x1="0" y1="100" x2="808" y2="100"/><g class="pose" style="--i:0"><polyline class="far" points="36,57.05534256745175 29.1,77.9 21.2,98.5 27.2,99.0"/><polyline class="far" points="38,29.055342567451753 42.6,43.3 53.2,52.5"/><polyline class="near" points="36,57.05534256745175 38,29.1"/><circle class="head" cx="39.5" cy="19.1" r="5.5"/><polyline class="near" points="36,57.05534256745175 42.9,77.9 49.6,98.9 55.6,99.4"/><polyline class="near" points="38,29.055342567451753 33.4,43.3 33.9,57.3"/><circle class="joint" cx="36.0" cy="57.1" r="1.7"/><circle class="joint" cx="42.9" cy="77.9" r="1.7"/><circle class="joint" cx="49.6" cy="98.9" r="1.7"/><circle class="joint" cx="38.0" cy="29.1" r="1.7"/><circle class="joint" cx="33.4" cy="43.3" r="1.7"/></g><g class="pose" style="--i:1"><polyline class="far" points="136,55.13868793996761 133.8,77.0 119.7,93.9 125.7,94.4"/><polyline class="far" points="138,27.13868793996761 141.3,41.8 150.4,52.4"/><polyline class="near" points="136,55.13868793996761 138,27.1"/><circle class="head" cx="139.5" cy="17.1" r="5.5"/><polyline class="near" points="136,55.13868793996761 138.2,77.0 135.9,98.9 141.9,99.4"/><polyline class="near" points="138,27.13868793996761 134.7,41.8 136.5,55.7"/><circle class="joint" cx="136.0" cy="55.1" r="1.7"/><circle class="joint" cx="138.2" cy="77.0" r="1.7"/><circle class="joint" cx="135.9" cy="98.9" r="1.7"/><circle class="joint" cx="138.0" cy="27.1" r="1.7"/><circle class="joint" cx="134.7" cy="41.8" r="1.7"/></g><g class="pose" style="--i:2"><polyline class="far" points="236,55.61032923433789 239.9,77.3 225.7,94.1 231.7,94.6"/><polyline class="far" points="238,27.61032923433789 238.0,42.6 242.8,55.8"/><polyline class="near" points="236,55.61032923433789 238,27.6"/><circle class="head" cx="239.5" cy="17.6" r="5.5"/><polyline class="near" points="236,55.61032923433789 232.1,77.3 228.1,98.9 234.1,99.4"/><polyline class="near" points="238,27.61032923433789 238.0,42.6 242.8,55.8"/><circle class="joint" cx="236.0" cy="55.6" r="1.7"/><circle class="joint" cx="232.1" cy="77.3" r="1.7"/><circle class="joint" cx="228.1" cy="98.9" r="1.7"/><circle class="joint" cx="238.0" cy="27.6" r="1.7"/><circle class="joint" cx="238.0" cy="42.6" r="1.7"/></g><g class="pose" style="--i:3"><polyline class="far" points="336,56.706655670730036 343.6,77.4 348.0,98.9 354.0,99.4"/><polyline class="far" points="338,28.706655670730036 334.7,43.3 336.5,57.2"/><polyline class="near" points="336,56.706655670730036 338,28.7"/><circle class="head" cx="339.5" cy="18.7" r="5.5"/><polyline class="near" points="336,56.706655670730036 328.4,77.4 320.8,98.0 326.8,98.5"/><polyline class="near" points="338,28.706655670730036 341.3,43.3 350.4,54.0"/><circle class="joint" cx="336.0" cy="56.7" r="1.7"/><circle class="joint" cx="328.4" cy="77.4" r="1.7"/><circle class="joint" cx="320.8" cy="98.0" r="1.7"/><circle class="joint" cx="338.0" cy="28.7" r="1.7"/><circle class="joint" cx="341.3" cy="43.3" r="1.7"/></g><g class="pose" style="--i:4"><polyline class="far" points="436,57.05534256745175 442.9,77.9 449.6,98.9 455.6,99.4"/><polyline class="far" points="438,29.055342567451753 433.4,43.3 433.9,57.3"/><polyline class="near" points="436,57.05534256745175 438,29.1"/><circle class="head" cx="439.5" cy="19.1" r="5.5"/><polyline class="near" points="436,57.05534256745175 429.1,77.9 421.2,98.5 427.2,99.0"/><polyline class="near" points="438,29.055342567451753 442.6,43.3 453.2,52.5"/><circle class="joint" cx="436.0" cy="57.1" r="1.7"/><circle class="joint" cx="429.1" cy="77.9" r="1.7"/><circle class="joint" cx="421.2" cy="98.5" r="1.7"/><circle class="joint" cx="438.0" cy="29.1" r="1.7"/><circle class="joint" cx="442.6" cy="43.3" r="1.7"/></g><g class="pose" style="--i:5"><polyline class="far" points="536,55.13868793996761 538.2,77.0 535.9,98.9 541.9,99.4"/><polyline class="far" points="538,27.13868793996761 534.7,41.8 536.5,55.7"/><polyline class="near" points="536,55.13868793996761 538,27.1"/><circle class="head" cx="539.5" cy="17.1" r="5.5"/><polyline class="near" points="536,55.13868793996761 533.8,77.0 519.7,93.9 525.7,94.4"/><polyline class="near" points="538,27.13868793996761 541.3,41.8 550.4,52.4"/><circle class="joint" cx="536.0" cy="55.1" r="1.7"/><circle class="joint" cx="533.8" cy="77.0" r="1.7"/><circle class="joint" cx="519.7" cy="93.9" r="1.7"/><circle class="joint" cx="538.0" cy="27.1" r="1.7"/><circle class="joint" cx="541.3" cy="41.8" r="1.7"/></g><g class="pose" style="--i:6"><polyline class="far" points="636,55.61032923433789 632.1,77.3 628.1,98.9 634.1,99.4"/><polyline class="far" points="638,27.61032923433789 638.0,42.6 642.8,55.8"/><polyline class="near" points="636,55.61032923433789 638,27.6"/><circle class="head" cx="639.5" cy="17.6" r="5.5"/><polyline class="near" points="636,55.61032923433789 639.9,77.3 625.7,94.1 631.7,94.6"/><polyline class="near" points="638,27.61032923433789 638.0,42.6 642.8,55.8"/><circle class="joint" cx="636.0" cy="55.6" r="1.7"/><circle class="joint" cx="639.9" cy="77.3" r="1.7"/><circle class="joint" cx="625.7" cy="94.1" r="1.7"/><circle class="joint" cx="638.0" cy="27.6" r="1.7"/><circle class="joint" cx="638.0" cy="42.6" r="1.7"/></g><g class="pose" style="--i:7"><polyline class="far" points="736,56.706655670730036 728.4,77.4 720.8,98.0 726.8,98.5"/><polyline class="far" points="738,28.706655670730036 741.3,43.3 750.4,54.0"/><polyline class="near" points="736,56.706655670730036 738,28.7"/><circle class="head" cx="739.5" cy="18.7" r="5.5"/><polyline class="near" points="736,56.706655670730036 743.6,77.4 748.0,98.9 754.0,99.4"/><polyline class="near" points="738,28.706655670730036 734.7,43.3 736.5,57.2"/><circle class="joint" cx="736.0" cy="56.7" r="1.7"/><circle class="joint" cx="743.6" cy="77.4" r="1.7"/><circle class="joint" cx="748.0" cy="98.9" r="1.7"/><circle class="joint" cx="738.0" cy="28.7" r="1.7"/><circle class="joint" cx="734.7" cy="43.3" r="1.7"/></g></svg>
-      <figcaption id="gait-cap">One walking cycle, pose by pose. Gait is a biometric that machines can learn to recognize; measuring how well they do it has been a thread of Sarkar’s research for more than two decades.</figcaption>
+      <canvas id="walker" class="walker" role="img" aria-labelledby="gait-cap" hidden></canvas>
+      <noscript><svg class="gait" viewBox="0 0 808 106" role="img" aria-labelledby="gait-cap"><line class="ground" x1="0" y1="100" x2="808" y2="100"/><g class="pose" style="--i:0"><polyline class="far" points="36,57.05534256745175 29.1,77.9 21.2,98.5 27.2,99.0"/><polyline class="far" points="38,29.055342567451753 42.6,43.3 53.2,52.5"/><polyline class="near" points="36,57.05534256745175 38,29.1"/><circle class="head" cx="39.5" cy="19.1" r="5.5"/><polyline class="near" points="36,57.05534256745175 42.9,77.9 49.6,98.9 55.6,99.4"/><polyline class="near" points="38,29.055342567451753 33.4,43.3 33.9,57.3"/><circle class="joint" cx="36.0" cy="57.1" r="1.7"/><circle class="joint" cx="42.9" cy="77.9" r="1.7"/><circle class="joint" cx="49.6" cy="98.9" r="1.7"/><circle class="joint" cx="38.0" cy="29.1" r="1.7"/><circle class="joint" cx="33.4" cy="43.3" r="1.7"/></g><g class="pose" style="--i:1"><polyline class="far" points="136,55.13868793996761 133.8,77.0 119.7,93.9 125.7,94.4"/><polyline class="far" points="138,27.13868793996761 141.3,41.8 150.4,52.4"/><polyline class="near" points="136,55.13868793996761 138,27.1"/><circle class="head" cx="139.5" cy="17.1" r="5.5"/><polyline class="near" points="136,55.13868793996761 138.2,77.0 135.9,98.9 141.9,99.4"/><polyline class="near" points="138,27.13868793996761 134.7,41.8 136.5,55.7"/><circle class="joint" cx="136.0" cy="55.1" r="1.7"/><circle class="joint" cx="138.2" cy="77.0" r="1.7"/><circle class="joint" cx="135.9" cy="98.9" r="1.7"/><circle class="joint" cx="138.0" cy="27.1" r="1.7"/><circle class="joint" cx="134.7" cy="41.8" r="1.7"/></g><g class="pose" style="--i:2"><polyline class="far" points="236,55.61032923433789 239.9,77.3 225.7,94.1 231.7,94.6"/><polyline class="far" points="238,27.61032923433789 238.0,42.6 242.8,55.8"/><polyline class="near" points="236,55.61032923433789 238,27.6"/><circle class="head" cx="239.5" cy="17.6" r="5.5"/><polyline class="near" points="236,55.61032923433789 232.1,77.3 228.1,98.9 234.1,99.4"/><polyline class="near" points="238,27.61032923433789 238.0,42.6 242.8,55.8"/><circle class="joint" cx="236.0" cy="55.6" r="1.7"/><circle class="joint" cx="232.1" cy="77.3" r="1.7"/><circle class="joint" cx="228.1" cy="98.9" r="1.7"/><circle class="joint" cx="238.0" cy="27.6" r="1.7"/><circle class="joint" cx="238.0" cy="42.6" r="1.7"/></g><g class="pose" style="--i:3"><polyline class="far" points="336,56.706655670730036 343.6,77.4 348.0,98.9 354.0,99.4"/><polyline class="far" points="338,28.706655670730036 334.7,43.3 336.5,57.2"/><polyline class="near" points="336,56.706655670730036 338,28.7"/><circle class="head" cx="339.5" cy="18.7" r="5.5"/><polyline class="near" points="336,56.706655670730036 328.4,77.4 320.8,98.0 326.8,98.5"/><polyline class="near" points="338,28.706655670730036 341.3,43.3 350.4,54.0"/><circle class="joint" cx="336.0" cy="56.7" r="1.7"/><circle class="joint" cx="328.4" cy="77.4" r="1.7"/><circle class="joint" cx="320.8" cy="98.0" r="1.7"/><circle class="joint" cx="338.0" cy="28.7" r="1.7"/><circle class="joint" cx="341.3" cy="43.3" r="1.7"/></g><g class="pose" style="--i:4"><polyline class="far" points="436,57.05534256745175 442.9,77.9 449.6,98.9 455.6,99.4"/><polyline class="far" points="438,29.055342567451753 433.4,43.3 433.9,57.3"/><polyline class="near" points="436,57.05534256745175 438,29.1"/><circle class="head" cx="439.5" cy="19.1" r="5.5"/><polyline class="near" points="436,57.05534256745175 429.1,77.9 421.2,98.5 427.2,99.0"/><polyline class="near" points="438,29.055342567451753 442.6,43.3 453.2,52.5"/><circle class="joint" cx="436.0" cy="57.1" r="1.7"/><circle class="joint" cx="429.1" cy="77.9" r="1.7"/><circle class="joint" cx="421.2" cy="98.5" r="1.7"/><circle class="joint" cx="438.0" cy="29.1" r="1.7"/><circle class="joint" cx="442.6" cy="43.3" r="1.7"/></g><g class="pose" style="--i:5"><polyline class="far" points="536,55.13868793996761 538.2,77.0 535.9,98.9 541.9,99.4"/><polyline class="far" points="538,27.13868793996761 534.7,41.8 536.5,55.7"/><polyline class="near" points="536,55.13868793996761 538,27.1"/><circle class="head" cx="539.5" cy="17.1" r="5.5"/><polyline class="near" points="536,55.13868793996761 533.8,77.0 519.7,93.9 525.7,94.4"/><polyline class="near" points="538,27.13868793996761 541.3,41.8 550.4,52.4"/><circle class="joint" cx="536.0" cy="55.1" r="1.7"/><circle class="joint" cx="533.8" cy="77.0" r="1.7"/><circle class="joint" cx="519.7" cy="93.9" r="1.7"/><circle class="joint" cx="538.0" cy="27.1" r="1.7"/><circle class="joint" cx="541.3" cy="41.8" r="1.7"/></g><g class="pose" style="--i:6"><polyline class="far" points="636,55.61032923433789 632.1,77.3 628.1,98.9 634.1,99.4"/><polyline class="far" points="638,27.61032923433789 638.0,42.6 642.8,55.8"/><polyline class="near" points="636,55.61032923433789 638,27.6"/><circle class="head" cx="639.5" cy="17.6" r="5.5"/><polyline class="near" points="636,55.61032923433789 639.9,77.3 625.7,94.1 631.7,94.6"/><polyline class="near" points="638,27.61032923433789 638.0,42.6 642.8,55.8"/><circle class="joint" cx="636.0" cy="55.6" r="1.7"/><circle class="joint" cx="639.9" cy="77.3" r="1.7"/><circle class="joint" cx="625.7" cy="94.1" r="1.7"/><circle class="joint" cx="638.0" cy="27.6" r="1.7"/><circle class="joint" cx="638.0" cy="42.6" r="1.7"/></g><g class="pose" style="--i:7"><polyline class="far" points="736,56.706655670730036 728.4,77.4 720.8,98.0 726.8,98.5"/><polyline class="far" points="738,28.706655670730036 741.3,43.3 750.4,54.0"/><polyline class="near" points="736,56.706655670730036 738,28.7"/><circle class="head" cx="739.5" cy="18.7" r="5.5"/><polyline class="near" points="736,56.706655670730036 743.6,77.4 748.0,98.9 754.0,99.4"/><polyline class="near" points="738,28.706655670730036 734.7,43.3 736.5,57.2"/><circle class="joint" cx="736.0" cy="56.7" r="1.7"/><circle class="joint" cx="743.6" cy="77.4" r="1.7"/><circle class="joint" cx="748.0" cy="98.9" r="1.7"/><circle class="joint" cx="738.0" cy="28.7" r="1.7"/><circle class="joint" cx="734.7" cy="43.3" r="1.7"/></g></svg></noscript>
+      <div class="walker-bar" id="walker-bar" hidden><span id="walker-status"></span><button type="button" id="walker-btn">Pause</button></div>
+      <figcaption id="gait-cap">Points that move together group into a walker, and a model predicts each next pose. Where the prediction fails, an event boundary is marked, and the steps nest inside the coarser events. On a second pass the model expects the stop, so the surprise is smaller. The strip draws on three threads of Sarkar’s research: perceptual organization, gait, and event segmentation from prediction error.</figcaption>
     </figure>
 
     <aside class="infobox" aria-label="Summary">
@@ -555,15 +562,208 @@ lm.nih.gov/articles/PMC4020064">Free full text</a></li>
 
 <script>
 (function(){
+  var cv=document.getElementById('walker'),bar=document.getElementById('walker-bar'),stE=document.getElementById('walker-status'),btn=document.getElementById('walker-btn');
+  if(!cv||!cv.getContext) return;
+  cv.hidden=false; bar.hidden=false;
+  var ctx=cv.getContext('2d');
+  var H=222,G=126,PY=140,PH=36,EM=40,TH=30,LOOP=11,T4=4,TD=0.35,TB=6.3,TA=0.3,HR=7,L1=30,L2=30,TL=36,A1=21,A2=20;
+  var R=Math.PI/180,TAU=Math.PI*2,WS=[0,0.6];
+  var LW=680,K=1,DPR=1,V=52,P=1.05,X0=70,x4,xs,ph4,phs,BX,NZ=[],P0,GUT=66,FS=12,C={};
+  var NEAR=[[1,2],[2,3],[1,6],[6,7],[7,8]],FAR=[[1,4],[4,5],[6,9],[9,10]];
+
+  function ss(a,b,x){var q=Math.min(1,Math.max(0,(x-a)/(b-a)));return q*q*(3-2*q);}
+  function lerp(a,b,q){return a+(b-a)*q;}
+  function seedRand(s){return function(){s=s+0x6D2B79F5|0;var q=Math.imul(s^s>>>15,1|s);q=q+Math.imul(q^q>>>7,61|q)^q;return((q^q>>>14)>>>0)/4294967296;};}
+
+  function readColors(){
+    var s=getComputedStyle(document.documentElement);
+    ['figure','figure-far','joint','rule','muted','ink','mark','seg2','paper'].forEach(function(n){C[n]=s.getPropertyValue('--'+n).trim();});
+    C.font=s.getPropertyValue('--sans').trim()||'sans-serif';
+  }
+
+  // Body model: angles in degrees from vertical, positive = forward
+  function leg(p,b){
+    var th=24*Math.sin(TAU*p),k=5+55*Math.pow(Math.max(0,Math.cos(TAU*p-0.5)),2);
+    th=lerp(th,50,b)*R; k=lerp(k,100,b)*R;
+    var kx=L1*Math.sin(th),ky=L1*Math.cos(th),sa=th-k;
+    return [kx,ky,kx+L2*Math.sin(sa),ky+L2*Math.cos(sa)];
+  }
+  function pose(s){
+    var x=s.x,ph=s.ph,b=s.b,n=leg(ph,b),f=leg(ph+0.5,b),hy=G-Math.max(n[3],f[3])-2,ln=(4+61*b)*R;
+    var sh=[x+TL*Math.sin(ln),hy-TL*Math.cos(ln)],hd=[sh[0]+(4+HR)*Math.sin(ln),sh[1]-(4+HR)*Math.cos(ln)],sw=Math.sin(TAU*ph);
+    function arm(a,e){a*=R;e*=R;var el=[sh[0]+A1*Math.sin(a),sh[1]+A1*Math.cos(a)];return [el,[el[0]+A2*Math.sin(a+e),el[1]+A2*Math.cos(a+e)]];}
+    var na=arm(lerp(-20*sw,6,b),lerp(10+16*Math.max(0,-sw),0,b)),fa=arm(lerp(20*sw,25,b),lerp(10+16*Math.max(0,sw),35,b));
+    return [hd,sh,na[0],na[1],fa[0],fa[1],[x,hy],[x+n[0],hy+n[1]],[x+n[2],hy+n[3]],[x+f[0],hy+f[1]],[x+f[2],hy+f[3]]];
+  }
+  // What actually happens: walk, stop and pick up the ball, walk on
+  function actual(t){
+    var x,ph,s,d;
+    if(t<T4){x=X0+V*t;ph=t/P;}
+    else if(t<T4+TD){s=t-T4;d=s-s*s/(2*TD);x=x4+V*d;ph=ph4+d/P;}
+    else if(t<TB){x=xs;ph=phs;}
+    else if(t<TB+TA){s=t-TB;d=s*s/(2*TA);x=xs+V*d;ph=phs+d/P;}
+    else{d=TA/2+(t-TB-TA);x=xs+V*d;ph=phs+d/P;}
+    return {x:x,ph:ph,b:ss(4.3,5.1,t)*(1-ss(5.45,6.25,t))};
+  }
+  // Event models: 0 = walk, 1 = pick up, 2 = walk on
+  function model(m,t){ if(m===0) return {x:X0+V*t,ph:t/P,b:0}; if(m===1) return actual(Math.min(t,TB)); return actual(t); }
+
+  function layout(){
+    var w=cv.clientWidth||680,h=Math.max(200,Math.min(236,Math.round(w*0.23)));
+    cv.style.height=h+'px'; DPR=window.devicePixelRatio||1;
+    cv.width=Math.round(w*DPR); cv.height=Math.round(h*DPR);
+    K=h/H; LW=w/K; FS=12/K;
+    var sc=Math.min(1,(LW-100)/454); V=52*sc; P=1.05/sc; X0=Math.max(20,(LW-454*sc)/2-15);
+    x4=X0+V*T4; xs=x4+V*TD/2; ph4=T4/P; phs=ph4+(TD/2)/P; BX=xs+37;
+    var r=seedRand(7); NZ=[];
+    var nn=Math.round(24*Math.min(1,LW/680));
+    for(var i=0;i<nn;i++) NZ.push({bx:20+r()*(LW-40),by:22+r()*92,vx:(-40+r()*58)*sc,vy:-12+r()*24,j:Math.floor(r()*11)});
+    P0=pose(actual(0));
+    ctx.font=FS+'px '+C.font;
+    GUT=Math.max(ctx.measureText('prediction').width,ctx.measureText('coarse').width)+10;
+  }
+
+  var k,t,m,tr,prev,bds,fine,lastHS,state='play',acc=0,last=null,raf=0,lastSt='';
+  function newLoop(){t=0;m=0;tr=[];bds=[];fine=[];lastHS=Math.floor((actual(0).ph-0.25)*2);}
+  function reset(){prev=[];k=0;newLoop();}
+  function predJ(t){
+    var w=WS[Math.min(k,1)],J=pose(model(m,t));
+    if(m<2&&w>0&&t>(m?TB:T4)){var J2=pose(model(m+1,t));J=J.map(function(p,i){return [lerp(p[0],J2[i][0],w),lerp(p[1],J2[i][1],w)];});}
+    return J;
+  }
+  function err(A,B){var s=0;for(var i=0;i<A.length;i++)s+=Math.hypot(A[i][0]-B[i][0],A[i][1]-B[i][1]);return s/A.length;}
+  function step(dt){
+    t+=dt;
+    if(t>=LOOP){prev.unshift(tr);k++;newLoop();return;}
+    var a=actual(t),e=err(pose(a),predJ(t))+1.2+0.8*Math.sin(13*t)*Math.sin(7.3*t+k);
+    tr.push([t,e]);
+    if(m<2){var on=m?TB:T4,w=WS[Math.min(k,1)];if(e>TH||(w>0&&t>on+0.5)){bds.push({t:t,e:e,ant:e<=TH});m++;}}
+    var hs=Math.floor((a.ph-0.25)*2); if(hs>lastHS&&a.b<0.05) fine.push(t); lastHS=hs;
+    [4.3,5.25,5.6].forEach(function(f){ if(t>=f&&t-dt<f) fine.push(f); });
+  }
+  function advance(dt){ if(k===1&&t>=LOOP-0.5){state='done';setBtn();return;} step(dt); }
+
+  function status(){
+    if(k===0&&t<3.2) return 'Of the '+(11+NZ.length)+' moving points, the 11 that share one motion group into a figure.';
+    var nb=bds.length;
+    if(k===0){
+      if(nb===0) return t<T4?'The model predicts the next pose (dashed) and expects the walk to continue.':'The walker stops. The prediction walks on, and the error rises.';
+      if(nb===1) return t<TB?'The error crossed the threshold, so the event model was replaced.':'The walker sets off while the model expects stillness.';
+      return 'Two boundaries divide the stream into walk, pick up and walk.';
+    }
+    return 'Second pass. The model expects the stop, so the surprise is smaller.';
+  }
+
+  function dot(p,r,c,al){ctx.globalAlpha=al;ctx.fillStyle=c;ctx.beginPath();ctx.arc(p[0],p[1],r,0,TAU);ctx.fill();}
+  function drawGroup(A,al){
+    if(k>0||t>3.6) return;
+    var Jp=pose(actual(t-P)),pts=[],dis=[],i,j;
+    for(i=0;i<11;i++){pts.push(A[i]);dis.push([A[i][0]-Jp[i][0],A[i][1]-Jp[i][1]]);}
+    NZ.forEach(function(n){
+      var p=[n.bx+n.vx*t+A[n.j][0]-A[6][0]-(P0[n.j][0]-P0[6][0]),n.by+n.vy*t+A[n.j][1]-A[6][1]-(P0[n.j][1]-P0[6][1])];
+      var q=[n.bx+n.vx*(t-P)+Jp[n.j][0]-Jp[6][0]-(P0[n.j][0]-P0[6][0]),n.by+n.vy*(t-P)+Jp[n.j][1]-Jp[6][1]-(P0[n.j][1]-P0[6][1])];
+      pts.push(p); dis.push([p[0]-q[0],p[1]-q[1]]);
+    });
+    var gE=ss(0.3,1.3,t)*(1-ss(2.6,3.4,t)),fade=1-ss(1.0,2.2,t);
+    ctx.lineWidth=1;
+    for(i=0;i<pts.length;i++) for(j=i+1;j<pts.length;j++){
+      var d=Math.hypot(pts[i][0]-pts[j][0],pts[i][1]-pts[j][1]); if(d>70) continue;
+      var dv=Math.hypot(dis[i][0]-dis[j][0],dis[i][1]-dis[j][1]),c=Math.exp(-dv*dv/50),a=gE*(c*0.6+(1-c)*0.2*fade);
+      if(a<0.02) continue;
+      ctx.globalAlpha=al*a; ctx.strokeStyle=c>0.5?C.figure:C.muted;
+      ctx.beginPath(); ctx.moveTo(pts[i][0],pts[i][1]); ctx.lineTo(pts[j][0],pts[j][1]); ctx.stroke();
+    }
+    var nz=1-ss(2.4,3.4,t); for(i=11;i<pts.length;i++) dot(pts[i],2.3,C.muted,al*nz);
+    ctx.globalAlpha=1;
+  }
+  function fig(J,al,ghost){
+    ctx.save(); ctx.globalAlpha=al; ctx.lineCap='round'; ctx.lineJoin='round';
+    function seg(list,c,w){ctx.strokeStyle=c;ctx.lineWidth=w;ctx.beginPath();list.forEach(function(e){ctx.moveTo(J[e[0]][0],J[e[0]][1]);ctx.lineTo(J[e[1]][0],J[e[1]][1]);});ctx.stroke();}
+    if(ghost){ctx.setLineDash([3,4]);seg(FAR.concat(NEAR),C.muted,1.4);}
+    else{seg(FAR,C['figure-far'],2.2);seg(NEAR,C.figure,2.6);ctx.strokeStyle=C.figure;ctx.lineWidth=2.2;}
+    ctx.beginPath(); ctx.arc(J[0][0],J[0][1],HR,0,TAU); ctx.stroke();
+    ctx.restore();
+  }
+  function rr(x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath();}
+
+  function draw(){
+    ctx.setTransform(DPR*K,0,0,DPR*K,0,0); ctx.clearRect(0,0,LW,H); ctx.font=FS+'px '+C.font;
+    var PW=LW-GUT-6,tx=function(v){return GUT+v/LOOP*PW;},ex=function(v){return PY+PH-Math.min(v,EM)/EM*PH;};
+    var A=pose(actual(t)),Pj=predJ(t),al=ss(0,0.35,t)*(1-ss(LOOP-0.35,LOOP,t));
+    // Stage
+    ctx.strokeStyle=C.rule; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(0,G+0.5); ctx.lineTo(LW,G+0.5); ctx.stroke();
+    drawGroup(A,al);
+    var gS=k>0?1:ss(2.2,3.2,t),gW=k>0?1:ss(1.0,2.4,t),i;
+    if(gS>0&&err(A,Pj)>3) fig(Pj,al*gS*0.9,true);
+    if(gS>0) fig(A,al*gS,false);
+    for(i=1;i<11;i++){dot(A[i],2.3,C.muted,al*(1-gW));dot(A[i],2.3,C.joint,al*gW);}
+    dot(A[0],2.3,C.muted,al*(1-gS));
+    dot(t<5.25?[BX,G-7]:[A[3][0]+1,A[3][1]+5],t<5.25?7:6,C.joint,al);
+    ctx.globalAlpha=1;
+    // Prediction error
+    ctx.fillStyle=C.muted; ctx.textAlign='left';
+    ctx.fillText('prediction',0,PY+FS); ctx.fillText('error',0,PY+2*FS+1);
+    ctx.fillText('coarse',0,196); ctx.fillText('fine',0,214);
+    ctx.strokeStyle=C.rule; ctx.beginPath(); ctx.moveTo(GUT,PY+PH+0.5); ctx.lineTo(GUT+PW,PY+PH+0.5); ctx.stroke();
+    ctx.strokeStyle=C.muted; ctx.globalAlpha=0.7; ctx.setLineDash([4,4]);
+    ctx.beginPath(); ctx.moveTo(GUT,ex(TH)); ctx.lineTo(GUT+PW,ex(TH)); ctx.stroke(); ctx.setLineDash([]); ctx.globalAlpha=1;
+    ctx.textAlign='right'; ctx.fillText('threshold',GUT+PW,ex(TH)-4); ctx.textAlign='left';
+    function trace(list,c,w){ if(list.length<2) return; ctx.strokeStyle=c; ctx.lineWidth=w; ctx.beginPath();
+      list.forEach(function(p,i){var X=tx(p[0]),Y=ex(p[1]); if(i) ctx.lineTo(X,Y); else ctx.moveTo(X,Y);}); ctx.stroke(); }
+    prev.forEach(function(p){trace(p,C['figure-far'],1.4);}); trace(tr,C.figure,1.7);
+    // Coarse events, then fine events nested inside them
+    var edges=[0].concat(bds.map(function(b){return b.t;}),[t]),names=['walk','pick up','walk'];
+    for(i=0;i<edges.length-1;i++){
+      var a0=tx(edges[i]),a1=tx(edges[i+1]); if(a1-a0<1) continue;
+      ctx.fillStyle=i%2?C.seg2:C.mark; rr(a0+0.5,183,a1-a0-1,16,3); ctx.fill();
+      if(a1-a0>ctx.measureText(names[i]).width+12){ctx.fillStyle=C.ink; ctx.fillText(names[i],a0+6,195);}
+    }
+    ctx.strokeStyle=C.rule; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(GUT,210.5); ctx.lineTo(tx(t),210.5); ctx.stroke();
+    ctx.strokeStyle=C.figure; ctx.lineWidth=1.3; ctx.beginPath();
+    fine.forEach(function(f){ctx.moveTo(tx(f),204);ctx.lineTo(tx(f),217);}); ctx.stroke(); ctx.lineWidth=1;
+    bds.forEach(function(b){
+      var X=tx(b.t); ctx.strokeStyle=C.ink; ctx.globalAlpha=0.5; ctx.beginPath(); ctx.moveTo(X,PY); ctx.lineTo(X,218); ctx.stroke(); ctx.globalAlpha=1;
+      ctx.beginPath(); ctx.arc(X,ex(b.e),b.ant?4:3.4,0,TAU);
+      if(b.ant){ctx.fillStyle=C.paper; ctx.fill(); ctx.lineWidth=1.2; ctx.stroke(); ctx.lineWidth=1;} else {ctx.fillStyle=C.ink; ctx.fill();}
+    });
+    if(state!=='done'){ctx.strokeStyle=C.rule; ctx.beginPath(); ctx.moveTo(tx(t),PY); ctx.lineTo(tx(t),219); ctx.stroke();}
+    var s=status(); if(s!==lastSt){stE.textContent=s; lastSt=s;}
+  }
+
+  function setBtn(){btn.textContent=state==='play'?'Pause':state==='paused'?'Resume':'Replay';}
+  function tick(ts){
+    raf=0; if(last===null) last=ts;
+    var d=Math.min(0.1,(ts-last)/1000); last=ts;
+    if(state==='play'){acc+=d; while(acc>=1/60&&state==='play'){advance(1/60);acc-=1/60;}}
+    draw(); if(state==='play') raf=requestAnimationFrame(tick);
+  }
+  function play(){ if(raf) return; last=null; raf=requestAnimationFrame(tick); }
+  btn.addEventListener('click',function(){
+    if(state==='play') state='paused';
+    else if(state==='paused'){state='play';play();}
+    else {reset();state='play';play();}
+    setBtn();
+  });
+
+  readColors(); layout(); reset();
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    while(state==='play') advance(1/60);
+    draw();
+  } else play();
+  setBtn();
+  function refresh(){readColors(); layout(); draw();}
+  window.addEventListener('resize',refresh);
+  var mq=window.matchMedia('(prefers-color-scheme: dark)'); if(mq.addEventListener) mq.addEventListener('change',refresh);
+  new MutationObserver(refresh).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(refresh);
+})();
+</script>
+<script>
+(function(){
   // Portrait fallback when portrait.jpg is missing
   var img=document.getElementById('portrait');
   function noPortrait(){ img.hidden=true; img.nextElementSibling.hidden=false; }
   if(img){ if(img.complete && img.naturalWidth===0) noPortrait(); else img.addEventListener('error',noPortrait); }
-
-  // Show fewer, larger poses on narrow screens
-  var g=document.querySelector('.gait');
-  function fitGait(){ if(g) g.setAttribute('viewBox', window.innerWidth<640 ? '0 0 404 106' : '0 0 808 106'); }
-  fitGait(); window.addEventListener('resize',fitGait);
 
   // Collapse the contents box on small screens
   var det=document.getElementById('toc-details');
